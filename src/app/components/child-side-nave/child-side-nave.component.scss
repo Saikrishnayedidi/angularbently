@@ -1,0 +1,58 @@
+$lightgreen:#93c54e;
+$lightblue:#2390b2;
+$lightred:#e45353;
+.container_{
+   
+    height: 90vh;
+   
+}
+.child_contentDisplay{
+    display: block;
+}
+.child_contentDisplay{
+    display: none;
+}
+.custom-control-input{
+    width: 20px;
+    height: 20px;
+}
+
+.scorll-div{
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.side_nav{
+   
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.icon{
+background-color: $lightgreen!important;
+}
+.dropdown{
+    position: relative;
+}
+.arrow-down-icon{
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+.icon1{
+    background-color: $lightblue;
+}
+.icon-r{
+ background-color: $lightred;
+ :hover{
+ background-color: #d80000;
+ }
+}
+.t{
+    font-size: 13px
+}
+.c{
+    color:$lightblue
+}
+.c1{
+    color:#999;
+}

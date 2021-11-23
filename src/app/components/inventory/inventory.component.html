@@ -1,0 +1,302 @@
+<div class="d-flex justify-content-between mt-4">
+  <h3>Inventory</h3>
+  <div class="d-flex align-items-center">
+    <i class="material-icons me-3">&#xe15d;</i>
+    <h3>Not Started</h3>
+  </div>
+</div>
+<p class="border-bottom border-2 border-danger"></p>
+
+<p>Inventory Examples</p>
+<hr />
+<p>
+  *MOST TIME SENSITIVE* Please provide three in-stock Inventory Examples below
+  with accurate Invoice, MSRP and Selling Price (before incentives and
+  rebates). This data will be used to order your inventory and validate the
+  pricing sent over from your Inventory Provider, ensuring we can calculate
+  accurate payments in your ads.
+</p>
+
+<!-- <div class="d-flex flex-wrap justify-content-evenly"> -->
+
+<form [formGroup]="inventryForm" (ngSubmit)="inventorySubmit()">
+  <div class="d-flex ">
+    <div class="col-4">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-7">
+          <p class="fs-3">New Vehicle 1</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Stock Number</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" formControlName="stockNumber"
+            class="form-control border border-dark py-3 mb-3" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Year:</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="year">
+            <option *ngFor="let item of yearobj" [value]='item.years'>{{item.years}}</option>
+
+
+          </select>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Make</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="make">
+            <option *ngFor="let item of makeObj" [value]="item.make">{{item.make}}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Model</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="model">
+            <option *ngFor="let item of modelObj" [value]="item.model">{{item.model}}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">MSRP</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" placeholder="$0.00" name="MSRP" (focus)="focus($event)"  (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="MSRP" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Selling Price(before incentives and rebates)*</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" placeholder="$0.00" name="sellingPrice" (focus)="focus($event)"  (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="sellingPrice" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Invoice Price*</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" placeholder="$0.00" name="invoicePrice" (focus)="focus($event)"  (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="invoicePrice" />
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-7">
+          <p class="fs-3">New Vechicle 2</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Stock Number</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" formControlName="stockNumber2"
+            class="form-control border border-dark py-3 mb-3" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Year:</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="year2">
+            <option *ngFor="let item of yearobj" [value]='item.years'>
+              {{item.years}}
+            </option>
+
+
+          </select>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Make</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="make2">
+            <option *ngFor="let item of makeObj" [value]="item.make">{{item.make}}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Model</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="model2">
+            <option *ngFor="let item of modelObj" [value]="item.model">{{item.model}}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">MSRP</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" (focus)="focus($event)" name="MSRP2" (blur)="currencyipe($event)" placeholder="$0.00" class="form-control border border-dark py-3 mb-3"
+            formControlName="MSRP2" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Selling Price(before incentives and rebates)*</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" name="sellingPrice2" placeholder="$0.00" (focus)="focus($event)"  (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="sellingPrice2" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Invoice Price*</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" placeholder="$0.00" name="invoicePrice2" (focus)="focus($event)"  (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="invoicePrice2" />
+        </div>
+      </div>
+
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <div class="col-4"></div>
+        <div class="col-7">
+          <p class="fs-3">New Vechicle 3</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Stock Number</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" formControlName="stockNumber3"
+            class="form-control border border-dark py-3 mb-3" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Year:</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="year3">
+            <option *ngFor="let item of yearobj" [value]='item.years'>{{item.years}}</option>
+
+
+          </select>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Make</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="make3">
+            <option *ngFor="let item of makeObj" [value]="item.make">{{item.make}}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="sel1">Model</label>
+        </div>
+        <div class="col-7">
+          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
+            formControlName="model3">
+            <option *ngFor="let item of modelObj" [value]="item.model">{{item.model}}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">MSRP</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" placeholder="$0.00" (focus)="focus($event)" name="MSRP3" (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="MSRP3" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Selling Price(before incentives and rebates)*</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" placeholder="$0.00" name="sellingPrice3" (focus)="focus($event)"  (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="sellingPrice3" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Invoice Price*</label>
+        </div>
+        <div class="col-7">
+          <input type="text" id="inputPassword6" placeholder="$0.00" name="invoicePrice3" (focus)="focus($event)"  (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3"
+            formControlName="invoicePrice3" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p class="fs-3">Inventory Uploads</p>
+    <p class="border-bottom border-2 border-dark"></p>
+    <p>
+      In addition to these values, please upload example screenshots from your DMS
+      or Inventory Management System. We will use this information to verify the
+      pricing.
+    </p>
+    <div class="d-flex align-items-center">
+      <i class="fas fa-cloud-upload-alt fs-1 me-4"></i>
+      <span>Upload File</span>
+    </div>
+
+
+    <div class="d-flex flex-column align-items-end">
+      <span class="text-danger mb-2">* If advertising New Vehicles, please complete MSRP, Selling Price and
+        Invoice Price before saving.
+      </span>
+      <button type="submit" class="btn rounded-pill text-light  px-5 mb-5 save-btn">
+        save
+      </button>
+
+    </div>
+  </div>
+
+</form>

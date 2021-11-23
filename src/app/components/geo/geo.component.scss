@@ -1,0 +1,24 @@
+.text_area{
+    width: 11rem;
+    height:13rem
+}
+.text:hover{
+    border: solid 2px black!important;
+}
+
+.form-check-input{
+    width: 20px;
+    height: 20px;
+   
+}
+$v-color: rgb(13, 0, 87);
+.save-btn{
+    background-color: $v-color;
+}
+textarea:disabled{
+    background-color: white;
+}
+
+textarea{
+    box-shadow:none!important;
+} 

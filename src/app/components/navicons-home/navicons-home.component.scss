@@ -1,0 +1,22 @@
+.icons-container{
+    padding:0vw 11vw!important;
+    margin-top: 100px!important;
+}
+body{
+    box-sizing: border-box;
+}
+.icons:hover{
+border: 1px solid red
+}
+.icon-card{
+ font-size: 10vh!important;
+ &:hover{
+     position: relative;
+     top:5px;
+     color: black!important;
+  
+ }
+}
+.text-card:hover{
+    border-bottom: 1px solid black;
+}

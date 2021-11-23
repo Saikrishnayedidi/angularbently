@@ -1,0 +1,265 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between mt-4">
+    <h3>Contact</h3>
+    <div class="d-flex align-items-center">
+      <i class="material-icons me-3">&#xe15d;</i>
+      <h3>Not Started</h3>
+    </div>
+  </div>
+  <p class="border-bottom border-2 border-danger"></p>
+  <p>
+    We frequently need dealership guidance on Inventory Feeds, Vehicle Pricing
+    and Digital Strategy and Performance. Please provide accurate contact
+    information for an expert on each of these topics at your dealership.
+  </p>
+  <form [formGroup]="contactForm" (ngSubmit)="contactSubmit()">
+    <div>
+      <p class="fs-3">Inventory Feed Contact</p>
+      <p class="border-bottom border-1 border-dark"></p>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">First Name</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" formControlName="firstName"
+              class="form-control border border-dark py-3 mb-3" />
+            <div *ngIf="
+                firstName &&
+                firstName.invalid &&
+                (firstName.dirty || firstName.touched)
+              " class="alert">
+              <div *ngIf="firstName.errors?.['required']">
+                Name is required.
+              </div>
+              <div *ngIf="firstName.errors?.['minlength']">
+                Name must be at least 4 characters long.
+              </div>
+              <div *ngIf="firstName.errors?.['minlength']">
+                Name must be at least 4 characters long.
+              </div>
+            </div>
+          </div>
+
+          <label for="inputPassword6" class="col-form-label">Email</label>
+
+          <div class="col-10">
+            <input type="email" id="inputPassword6" name="email" formControlName="email"
+              class="form-control border border-dark py-3 mb-3" (keyup)="valid($event,'email1')" [ngClass]="error.isemail1Error ? 'error' : 'errorvalid'" />
+            <div *ngIf="email && email.invalid && (email.dirty || email.touched)" class="alert">
+              <div *ngIf="email.errors?.['required']">Name is required.</div>
+              <div *ngIf="email.errors?.['email']">enter the valid email</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Last Name</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" formControlName="lastName"
+              class="form-control border border-dark py-3 mb-3" />
+            <div *ngIf="
+                lastName &&
+                lastName.invalid &&
+                (lastName.dirty || lastName.touched)
+              " class="alert">
+              <div *ngIf="lastName.errors?.['required']">Name is required.</div>
+              <div *ngIf="lastName.errors?.['minlength']">
+                Name must be at least 4 characters long.
+              </div>
+            </div>
+          </div>
+
+          <label for="inputPassword6" class="col-form-label">Phone Number1</label>
+
+          <div class="col-10">
+            <input mask="(000) 000-0000" type="text" id="inputPassword6" name="password" (keyup)="valid($event,'PhoneNum')" formControlName="phoneNumber"
+              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isPhoneNumError ? 'error' : 'errorvalid'" />
+
+            <div *ngIf="
+                phoneNumber &&
+                phoneNumber.invalid &&
+                (phoneNumber.dirty || phoneNumber.touched)
+              " class="alert">
+              <div *ngIf="phoneNumber.errors?.['required']">
+                phoneNumber is required.
+              </div>
+              <div *ngIf="phoneNumber.errors?.['minlength']">
+                enter a valid number
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div formGroupName="vechilePricing">
+      <p class="fs-3">Vehicle Pricing Contact</p>
+      <p class="border-bottom border-1 border-dark"></p>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">First Name</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" formControlName="firstName"
+              class="form-control border border-dark py-3 mb-3" />
+            <div *ngIf="
+                firstName1 &&
+                firstName1.invalid &&
+                (firstName1.dirty || firstName1.touched)
+              " class="alert">
+              <span *ngIf="firstName1.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="firstName1.errors?.['minlength']">
+                Name must be at least 5 characters long.
+              </span>
+            </div>
+          </div>
+
+          <label for="inputPassword6" class="col-form-label">Email</label>
+
+          <div class="col-10">
+            <input type="email" id="inputPassword6" formControlName="email"
+              class="form-control border border-dark py-3 mb-3" name="email" (keyup)="valid($event,'email2')" [ngClass]="error.isemail2Error ? 'error' : 'errorvalid'" />
+            <div *ngIf="
+                email1 && email1.invalid && (email1.dirty || email1.touched)
+              " class="alert">
+              <span *ngIf="email1.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="email1.errors?.['email']">
+                enter the valid mail
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Last Name</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" formControlName="lastName"
+              class="form-control border border-dark py-3 mb-3" />
+            <div *ngIf="
+                lastName1 &&
+                lastName1.invalid &&
+                (lastName1.dirty || lastName1.touched)
+              " class="alert">
+              <span *ngIf="lastName1.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="lastName1.errors?.['minlength']">
+                Name must be at least 5 characters long.
+              </span>
+            </div>
+          </div>
+
+          <label for="inputPassword6" class="col-form-label">Phone Number</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" mask="(000) 000-0000" name="password" (keyup)="valid($event,'PhoneNum2')" formControlName="phoneNumber"
+              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isPhoneNum2Error ? 'error' : 'errorvalid'" />
+            <div *ngIf="
+                phoneNumber1 &&
+                phoneNumber1.invalid &&
+                (phoneNumber1.dirty || phoneNumber1.touched)
+              " class="alert">
+              <span *ngIf="phoneNumber1.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="phoneNumber1.errors?.['minlength']">
+                enter the valid phonenumber
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div formGroupName="digitalStrategy">
+      <p class="fs-3">Digital Strategy & Performance Contact</p>
+      <p class="border-bottom border-1 border-dark"></p>
+      <div class="row">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">First Name</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" formControlName="firstName"
+              class="form-control border border-dark py-3 mb-3" />
+            <div *ngIf="
+                firstName2 &&
+                firstName2.invalid &&
+                (firstName2.dirty || firstName2.touched)
+              " class="alert">
+              <span *ngIf="firstName2.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="firstName2.errors?.['minlength']">
+                Name must be at least 5 characters long.
+              </span>
+            </div>
+          </div>
+
+          <label for="inputPassword6" class="col-form-label">Email</label>
+
+          <div class="col-10">
+            <input type="email" id="inputPassword6" name="email" (keyup)="valid($event,'email3')" formControlName="email"
+              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isemail3Error ? 'error' : 'errorvalid'"  />
+            <div *ngIf="
+                email2 && email2.invalid && (email2.dirty || email2.touched)
+              " class="alert">
+              <span *ngIf="email2.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="email2.errors?.['email']">
+                enter the valid mail
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Last Name</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" formControlName="lastName"
+              class="form-control border border-dark py-3 mb-3" />
+            <div *ngIf="
+                lastName2 &&
+                lastName2.invalid &&
+                (lastName2.dirty || lastName2.touched)
+              " class="alert">
+              <span *ngIf="lastName2.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="lastName2.errors?.['minlength']">
+                Name must be at least 5 characters long.
+              </span>
+            </div>
+          </div>
+
+          <label for="inputPassword6" class="col-form-label">Phone Number</label>
+
+          <div class="col-10">
+            <input type="text" id="inputPassword6" formControlName="phoneNumber" mask="(000) 000-0000"
+              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isPhoneNum2Error ? 'error' : 'errorvalid'" (keyup)="valid($event,'PhoneNum2')" />
+            <div *ngIf="
+                phoneNumber2 &&
+                phoneNumber2.invalid &&
+                (phoneNumber2.dirty || phoneNumber2.touched)
+              " class="alert">
+              <span *ngIf="phoneNumber2.errors?.['required']">
+                Name is required.
+              </span>
+              <span *ngIf="phoneNumber2.errors?.['minlength']">
+                enter the valid phonenumber
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-end">
+      <button type="submit" [disabled]="contactForm.invalid" class="btn rounded-pill text-light px-5 mb-5 save-btn">
+        save
+      </button>
+    </div>
+  </form>
+</div>

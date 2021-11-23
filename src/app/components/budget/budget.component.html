@@ -1,0 +1,182 @@
+<div class="d-flex justify-content-between mt-4">
+    <h3 class="fs-2">Historical Budgets</h3>
+    <div class="d-flex align-items-center">
+        <i class="material-icons me-3">&#xe15d;</i>
+        <h3>Not Started</h3>
+    </div>
+</div>
+<p class="border-bottom border-2 border-danger"></p>
+<p>
+    Please provide your historical budget spent with your previous provider. If not applicable, please leave blank.
+</p>
+<div class="container-fluid">
+    <form [formGroup]="bugGetForm" (ngSubmit)="begGetSubmit()">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Search-New</div>
+                    <div class="col-6">
+                        <input type="text" name="searchNew" formControlName="searchNew" (focus)="focus($event)"
+                            (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">YouTube</div>
+                    <div class="col-6">
+                        <input type="text" class="form-control border border-dark py-3 mb-3" formControlName="youTube"
+                            name="youTube" (focus)="focus($event)" (blur)="currencyipe($event)" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Search-Pre-Owned</div>
+                    <div class="col-6">
+                        <input type="text" name="searchPreOwned" formControlName="searchPreOwned" (focus)="focus($event)"
+                            (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">OTT</div>
+                    <div class="col-6">
+                        <input type="text" class="form-control border border-dark py-3 mb-3" formControlName="ott"
+                            name="ott" (focus)="focus($event)" (blur)="currencyipe($event)" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Search-Service</div>
+                    <div class="col-6">
+                        <input type="text" name="searchService" formControlName="searchService" (focus)="focus($event)"
+                            (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Sales Mail</div>
+                    <div class="col-6">
+                        <input type="text" class="form-control border border-dark py-3 mb-3" formControlName="salesMail"
+                            name="salesMail" (focus)="focus($event)" (blur)="currencyipe($event)" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Social-Sales</div>
+                    <div class="col-6">
+                        <input type="text" name="socialSales" formControlName="socialSales" (focus)="focus($event)"
+                            (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Service Mail</div>
+                    <div class="col-6">
+                        <input type="text" class="form-control border border-dark py-3 mb-3" formControlName="serviceMail"
+                            name="serviceMail" (focus)="focus($event)" (blur)="currencyipe($event)" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Social-Service</div>
+                    <div class="col-6">
+                        <input type="text" name="socialService" formControlName="socialService" (focus)="focus($event)"
+                            (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-3 fs-5">Other</div>
+                    <div class="col-6">
+                        <input type="text" class="form-control border border-dark py-3 mb-3" formControlName="other"
+                            name="other" (focus)="focus($event)" (blur)="currencyipe($event)" />
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-2 fs-5">Display-New</div>
+                    <div class="col-4">
+                        <input type="text" name="displayNew" formControlName="displayNew" (focus)="focus($event)"
+                            (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3" />
+                    </div>
+                </div>
+
+            </div>
+         
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-2 fs-5">Display-Pre-Owned</div>
+                    <div class="col-4">
+                        <input type="text" name="displayPreOwned" formControlName="displayPreOwned" (focus)="focus($event)"
+                            (blur)="currencyipe($event)" class="form-control border border-dark py-3 mb-3" />
+                    </div>
+                </div>
+
+            </div>
+           
+
+
+
+        </div>
+        
+  <div class="d-flex flex-column align-items-end">
+
+    <button type="submit" class="btn rounded-pill text-light  px-5 mb-5 save-btn">
+      save
+    </button>
+
+  </div>
+
+    </form>
+
+</div>

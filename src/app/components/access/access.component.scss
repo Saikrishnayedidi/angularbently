@@ -1,0 +1,21 @@
+.form-check-input{
+    width: 20px;
+    height: 20px;
+   
+}
+.box{
+    position: relative;
+}
+.inputredio{
+    position: absolute;
+    width: 30vh;
+    top:-2rem;
+    right: 26rem;
+}
+$v-color: rgb(13, 0, 87);
+.save-btn{
+    background-color: $v-color;
+}
+input:disabled{
+    background-color: white;
+}

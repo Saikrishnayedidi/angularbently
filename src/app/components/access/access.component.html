@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between mt-4">
+    <p class="fs-2">Access</p>
+    <div class="d-flex align-items-center">
+      <i class="material-icons me-3">&#xe15d;</i>
+      <h3>Not Started</h3>
+    </div>
+  </div>
+  <p class="border-bottom border-2 border-danger mt-2"></p>
+  <form [formGroup]="accessForm" (ngSubmit)="accessSubmit()">
+  <div class="container-fluid">
+      <p class="fs-3">Grant Acsess</p>
+      <p class="border-bottom border-1 border-dark mt-2"></p>
+      
+      <div class="form-check">
+        <input class="form-check-input me-2"  formControlName="facebook" type="checkbox" name="fname" value="sai" id="flexCheckDefault">
+        <label class="form-check-label fw-light" for="flexCheckDefault">
+          Facebook - Page Admin Access 
+        </label>
+        <p class="ms-2">Required to run Facebook Ads. Team Velocity will send a request from Data Driven Holdings. Access must be granted by your Facebook Business Manager.</p>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input me-2" type="checkbox" formControlName="google"   id="flexCheckChecked" >
+        <label class="form-check-label fw-light" for="flexCheckChecked">
+       Google My Business - Manager Access (Site Manager Access is not sufficient)
+        </label>
+        <p class="ms-2">Required to enable Location Extensions and more. Foundation will send a request for you to accept from  <a href="#" class="text-reset">digitallocationstier10@gmail.com </a></p>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input me-2" type="checkbox" formControlName="googleAnalytics" id="flexCheckChecked" >
+        <label class="form-check-label fw-light" for="flexCheckChecked">
+         Google Analytics -  Edit Access
+        </label>
+        <p class="ms-2">Strongly recommended for measurement and optimization. You will need to initiate. Please grant Edit Access at the Property Level to</p>
+      <p class=""><a href="mailto:" class="text-reset">TeamVDealerAnalytics6@gmail.com</a>. <a href="#" class="text-reset">See Google's Instructions For Adding Users.</a></p>
+      </div>
+    <div formGroupName="radio">
+      <p class=" text-black">Google Ads Account Preferences (select one)</p>
+       <div class="container">
+        <div class="form-check box">
+        <input class="form-check-input" type="radio" (click)="radioBtn()" formControlName="googleAds" name="googleAds" id="flexRadioDefault1">     
+         <p class="col-8"> Use My existing Google Ads accounts. The 10-digit customer ID is:</p>
+         <input type="text"  class="form-control border border-dark py-3 mb-3 col inputredio" mask="(000) 000-0000" formControlName="googleAdsInput"  />  
+        
+        <p>You must have Admin Access to approve Team Velocity’s request to link your existing account to the Team Velocity MCC. You will not be able to manage non-Team Velocity campaigns in the account alongside our dynamic campaigns.</p>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault"  formControlName="googleAds" value="new account" (click)="radioBtn1()" id="flexRadioDefault2" name="googleAds">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Create a new Google Ads account for me 
+            </label>
+          </div>
+
+       </div>
+       </div>
+       <div class="d-flex flex-column align-items-end">
+
+        <button type="submit"  class="btn rounded-pill text-light  px-5 mb-5 save-btn">
+          save
+        </button>
+    
+      </div>
+  </div>
+  </form>

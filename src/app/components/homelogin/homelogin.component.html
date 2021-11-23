@@ -1,0 +1,13 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <img class="w-20 mt-5" src="../../../assets/images/applo.png" alt="">
+    <h3 class="mb-5">get fueled</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+        <div class="mb-3"> 
+          <input type="email" formControlName="email" class="form-control border border-secondary border-0 border-2 border-bottom" placeholder="email" id="exampleInputEmail1" aria-describedby="emailHelp"> 
+        </div>
+        <div class="mb-3">      
+          <input type="password" formControlName="password" class="form-control border border-secondary border-0 border-2 border-bottom" placeholder="password" id="exampleInputPassword1">
+        </div>    
+        <button type="submit" class="btn btn-primary">launch</button>
+      </form>
+</div>

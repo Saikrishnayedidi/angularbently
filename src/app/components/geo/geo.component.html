@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-between mt-4">
+    <p class="fs-2">Geo</p>
+    <div class="d-flex align-items-center">
+      <i class="material-icons me-3">&#xe15d;</i>
+      <h3>Not Started</h3>
+    </div>
+  </div>
+  <p class="border-bottom border-2 border-danger mt-2"></p>
+   <form>
+  <div class="container-fluid">
+      <p>Provide direction on where to show your ads -- by setting a radius or providing a list of zip codes.</p>
+      <p>Let us know if New, Used, or Service campaigns require their own unique Geo Targeting strategies. Feel free to upload any Pump In, Pump Out, or Cross Sell reports for a more analytical approach. If geos are not provided before launch, a 15 mile radius will be set around the dealership.</p>
+    <p class="mt-5 fs-4">Primary Marketing Area / Area of Responsibility</p> 
+    <p class="border-bottom border-1 border-dark mt-2"></p>
+    <div class="d-flex">
+        <p class="fs-4 col-6 me-5">PROFIT CENTER: NEW</p>
+        <div>
+            <p class="fs-4">PROFIT CENTER: USED</p>
+            <div class="form-check box">
+              <input class="form-check-input" type="checkbox" (click)="toggle1()" name="flexRadioDefault" id="flexRadioDefault1">     
+               <p class="ms-2 "> Use Profit Central Postal codes</p>
+              
+            
+                </div>
+        </div>
+    </div> 
+     
+
+     <div class="d-flex ">
+    
+         <div class="d-flex ">
+            <div class="me-5">
+                <p class="fs-5 text-decoration-underline">Include</p>
+                <p>Enter one or more postal codes:</p>
+                <div class="input-group  text_area ">
+                   
+                   <textarea class="form-control border border-1 border-secondary rounded-3 text "  aria-label="With textarea"></textarea>
+                 </div>
+              </div>
+              <div class="mx-5">
+               <p class="fs-5 text-decoration-underline">Exclude</p>
+               <p>Enter one or more postal codes:</p>
+               <div class="input-group  text_area ">
+                  
+                  <textarea class="form-control border border-1 border-secondary rounded-3 text " aria-label="With textarea"></textarea>
+                </div>
+              </div>
+         </div>
+           
+        
+         
+           
+           <div class="d-flex ">
+            <div class="mx-5"> 
+                <p class="fs-5 text-decoration-underline">Include</p>
+                <p>Enter one or more postal codes:</p>
+                <div class="input-group  text_area ">
+                   
+                   <textarea class="form-control border border-1 border-secondary rounded-3 text " [disabled]="isValid1" aria-label="With textarea"></textarea>
+                 </div>
+              </div>
+              <div class="ms-5">
+               <p class="fs-5 text-decoration-underline">Include</p>
+               <p>Enter one or more postal codes:</p>
+               <div class="input-group  text_area ">
+                  
+                  <textarea class="form-control border border-1 border-secondary rounded-3 text " [disabled]="isValid1" aria-label="With textarea"></textarea>
+                </div>
+              </div>
+           </div>
+           
+        
+       
+    
+    </div>
+    <div>
+        <p class="fs-4">PROFIT CENTER:SERVICE</p>
+        <div class="form-check box">
+          <input class="form-check-input" type="checkbox" (click)="toggle()" name="flexRadioDefault" id="flexRadioDefault1">     
+           <p class="ms-2 "> Use Profit Central Postal codes</p>
+          
+        
+            </div>
+        <div class="d-flex ">
+            <div class="me-5">
+                <p class="fs-5 text-decoration-underline">Include</p>
+                <p>Enter one or more postal codes:</p>
+                <div class="input-group  text_area ">
+                   
+                   <textarea class="form-control border border-1 border-secondary rounded-3 text " [disabled]="isValid" aria-label="With textarea"></textarea>
+                 </div>
+              </div>
+              <div class="mx-5">
+               <p class="fs-5 text-decoration-underline">Exclude</p>
+               <p>Enter one or more postal codes:</p>
+               <div class="input-group  text_area ">
+                  
+                  <textarea class="form-control border border-1 border-secondary rounded-3 text "[disabled]="isValid" aria-label="With textarea"></textarea>
+                </div>
+              </div>
+         </div>
+
+    </div>
+    <div>
+      <p class="fs-4">Uploads</p>
+      <p class="border-bottom border-1 border-dark mt-2"></p>
+      Pleade upload recent sales reports.We will use this information to optimize geo targeting
+      <div class="d-flex align-items-center ">
+        <i class="fas fa-cloud-upload-alt fs-1 me-4">
+        <input type="file" class="btn" formControlName="file" (change)="selectFile($event)" name="" id=""></i>
+        <span>Upload File</span>
+      </div>
+    </div>
+  </div>
+  <img [src]="imgurl" alt="">
+  <div class="d-flex flex-column align-items-end">
+
+    <button type="button" (click)="upload()" class="btn rounded-pill text-light  px-5 mb-5 save-btn">
+      save
+    </button>
+
+  </div>
+  </form>

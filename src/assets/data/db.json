@@ -1,0 +1,285 @@
+{
+  "user": [
+    {
+      "email": "sai@gmail.com",
+      "password": 12345,
+      "userName": "Sai Krishna"
+    }
+  ],
+  "invetary": [
+    {
+      "stockNumber": "12345",
+      "year": "1999",
+      "make": "Bently",
+      "model": "Bently",
+      "MSRP": 2000,
+      "sellingPrice": 3000,
+      "invoicePrice": 4000,
+      "stockNumber2": "123456",
+      "year2": "2000",
+      "make2": "Bently",
+      "model2": "Bently",
+      "MSRP2": 3000,
+      "sellingPrice2": 5000,
+      "invoicePrice2": 5000,
+      "stockNumber3": "98670",
+      "year3": "1998",
+      "make3": "Bently",
+      "model3": "Bently",
+      "MSRP3": 6000,
+      "sellingPrice3": 7000,
+      "invoicePrice3": "",
+      "id": 1
+    }
+  ],
+  "accounts": [
+    {
+      "conform": "yes",
+      "URLS": {
+        "websiteURLS": "wwwwwww",
+        "websiteProvider": "ww",
+        "facebookURL": "www.websiteurls.com",
+        "twitterURL": "123",
+        "instagramURL": "qww",
+        "youTubeURL": "12345",
+        "callLineSales": "ww",
+        "callLineService": "123"
+      },
+      "id": 1
+    },
+    {
+      "conform": "yes",
+      "URLS": {
+        "websiteURLS": "www.website.com",
+        "websiteProvider": "www.facebook.com",
+        "facebookURL": "www.facebook.com",
+        "twitterURL": "www.twitter.com",
+        "instagramURL": "www.instaagram.com",
+        "youTubeURL": "www.youtube.com",
+        "callLineSales": "9999999999",
+        "callLineService": ""
+      },
+      "id": 5
+    },
+    {
+      "conform": "yes",
+      "URLS": {
+        "websiteURLS": "www.website.com",
+        "websiteProvider": "www.facebook.com",
+        "facebookURL": "www.facebook.com",
+        "twitterURL": "www.twitter.com",
+        "instagramURL": "www.instaagram.com",
+        "youTubeURL": "www.facebook.com",
+        "callLineSales": "9999999999",
+        "callLineService": ""
+      },
+      "id": 6
+    },
+    {
+      "conform": "yes",
+      "URLS": {
+        "websiteURLS": "www.website.com",
+        "websiteProvider": "www.facebook.com",
+        "facebookURL": "www.facebook.com",
+        "twitterURL": "www.twitter.com",
+        "instagramURL": "www.instaagram.com",
+        "youTubeURL": "www.websiteurls.com",
+        "callLineSales": "9999999999",
+        "callLineService": ""
+      },
+      "id": 7
+    }
+  ],
+  "contacts": [
+    {
+      "firstName": "sai",
+      "lastName": "krishna",
+      "email": "sai@gmail.com",
+      "phoneNumber": 9494294590,
+      "vechilePricing": {
+        "firstName": "ramuu",
+        "lastName": "yedidi",
+        "email": "krishna@gmail.com",
+        "phoneNumber": 44555656990
+      },
+      "digitalStrategy": {
+        "firstName": "lokeh",
+        "lastName": "ragava",
+        "email": "sai@gmail.com",
+        "phoneNumber": 4444444444
+      },
+      "id": 1
+    },
+    {
+      "firstName": "lokesh",
+      "lastName": "lokesh",
+      "email": "lokesh@gmail.com",
+      "phoneNumber": "9494949494",
+      "vechilePricing": {
+        "firstName": "lokesh",
+        "lastName": "lokesh",
+        "email": "lokesh@gmail.com",
+        "phoneNumber": "1234999999"
+      },
+      "digitalStrategy": {
+        "firstName": "ramesh",
+        "lastName": "ramesh",
+        "email": "lokesh@gmail.com",
+        "phoneNumber": "1234666666"
+      },
+      "id": 2
+    },
+    {
+      "firstName": "lokesh",
+      "lastName": "lokesh",
+      "email": "lokesh@gmail.com",
+      "phoneNumber": "9494949494",
+      "vechilePricing": {
+        "firstName": "lokesh",
+        "lastName": "lokesh",
+        "email": "lokesh@gmail.com",
+        "phoneNumber": "1234999999"
+      },
+      "digitalStrategy": {
+        "firstName": "ramesh",
+        "lastName": "ramesh",
+        "email": "lokesh@gmail.com",
+        "phoneNumber": "1234666666"
+      },
+      "id": 3
+    },
+    {
+      "firstName": "lokesh",
+      "lastName": "lokesh",
+      "email": "lokesh@gmail.com",
+      "phoneNumber": "9494949494",
+      "vechilePricing": {
+        "firstName": "lokesh",
+        "lastName": "lokesh",
+        "email": "lokesh@gmail.com",
+        "phoneNumber": "1234999999"
+      },
+      "digitalStrategy": {
+        "firstName": "ramesh",
+        "lastName": "ramesh",
+        "email": "lokesh@gmail.com",
+        "phoneNumber": "1234666666"
+      },
+      "id": 4
+    }
+  ],
+  "billing": [
+    {
+      "searchNew": "$40,000",
+      "youTube": "$5,860",
+      "searchPreOwned": "$4,950",
+      "ott": "$4,758",
+      "searchService": "$45,900",
+      "salesMail": "",
+      "other": "",
+      "socialSales": "",
+      "serviceMail": "",
+      "displayNew": "",
+      "displayPreOwned": "",
+      "socialService": "",
+      "id": 3
+    }
+  ],
+  "access": [
+    {
+      "facebook": true,
+      "google": "",
+      "googleAnalytics": true,
+      "radio": {
+        "googleAdsInput": "6969696999"
+      },
+      "id": 1
+    }
+  ],
+  "geo": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
+    },
+    {
+      "id": 18
+    },
+    {
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "id": 21
+    },
+    {
+      "id": 22
+    },
+    {
+      "id": 23
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": 25
+    },
+    {
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 28
+    }
+  ]
+}

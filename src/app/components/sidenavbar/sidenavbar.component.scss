@@ -1,0 +1,61 @@
+$v-color: rgb(13, 0, 87);
+.header{
+  margin-top: 100px;
+   
+   background-color: rgb(87, 85, 85);
+}
+.progress{
+    margin-right: auto;
+    margin-left: 20rem;
+}
+.percent{
+    margin-right: auto;
+    margin-right: 15rem;
+}
+.nav-link{
+    background-color: rgb(218, 218, 218);
+    border-bottom: 1px solid white;
+    padding: 0px;
+     &:hover{
+        
+        color: white!important;
+     }
+     
+    a{
+      text-decoration: none;  
+      &:hover{
+          color: white!important;
+          background-color: $v-color;
+          
+      }
+     
+    }
+}
+.sidebar{
+    margin-left: -44px;
+}
+.background{
+    background-color: rgb(87, 85, 85);
+    height: 150vh;
+    // width: 42vh!important;
+}
+.progress-bar{
+    background-color: rgb(129, 214, 129);
+    
+}
+
+.nav-link{
+    position: relative;
+  
+}
+.active{
+    
+        position: relative;
+        width: 1px;
+        // height: 50px;
+        background-color: red; 
+        left: -10px;
+        
+}
+
+

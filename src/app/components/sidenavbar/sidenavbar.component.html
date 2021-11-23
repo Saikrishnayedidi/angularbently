@@ -1,0 +1,110 @@
+<nav class="navbar navbar-light header">
+  <div class="container-fluid py-2">
+    <i class="fas fa-home text-light fs-1"></i>
+    <div class="progress col-6 me-auto progress">
+      <div class="progress-bar" role="progressbar" style="width: 15%"></div>
+    </div>
+    <span class="percent text-light">15% complete</span>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 background">
+      <div class="sidebar">
+        <div class="lists-data">
+          <ul class="nav-list">
+            <li class="nav-link fs-5">
+              <a class="text-dark py-3 d-block ps-3" routerLink="/home/nav"
+                >SUMMARY</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/inventor"
+                routerLinkActive="active"
+                >INVENTOR</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/accounts"
+                routerLinkActive="active"
+                >ACCOUNTS</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/contacts"
+                routerLinkActive="active"
+                >CONTACTS</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/budget"
+                routerLinkActive="active"
+                >BUDGET</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/access"
+                routerLinkActive="active"
+                >ACCESS</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/expectations"
+                routerLinkActive="active"
+                >EXPECTATIONS</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/advertising"
+                routerLinkActive="active"
+                >ADVERTISING</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3  d-block ps-3"
+                routerLink="/home/sidenav/geo"
+                routerLinkActive="active"
+                >GEO</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/billing"
+                routerLinkActive="active"
+                >BILLING</a
+              >
+            </li>
+            <li class="nav-link fs-5">
+              <a
+                class="text-dark py-3 d-block ps-3"
+                routerLink="/home/sidenav/measurement"
+                routerLinkActive="active"
+                >MEASUREMENT</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-10 scroll">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

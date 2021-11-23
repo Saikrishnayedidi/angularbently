@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-between mt-4">
+    <p class="fs-2">Measurement</p>
+    <div class="d-flex align-items-center">
+      <i class="material-icons me-3">&#xe15d;</i>
+      <h3>Not Started</h3>
+    </div>
+  </div>
+  <p class="border-bottom border-2 border-danger mt-2"></p>
+  <form [formGroup]="measurementForm" (ngSubmit)="measurementSubmit()">
+  <div class="container-fluid">
+    <p >
+        By default, once you grant us Edit Access to your Google Analytics account, Foundation will create a new Google Analytics View to measure Foundation-Recommended goals based on the functionality available on your website. This will be linked to your Google Ads account and used to measure success and inform optimization strategies. This added measurement service is complementary.
+      </p>
+      <div class="container">
+        <div class="form-check">
+            <input class="form-check-input text "  type="radio" (change)="toggle1()" formControlName="check1" name="check1" value="creat a google account" id="flexRadioDefault1" >
+            <label class="form-check-label" for="flexRadioDefault1">
+              Recommended-Create a Foundation Google Analytics View and Goals for me
+            </label>
+          </div>
+          <p class="fs-5">OR</p>
+          <div class="form-check">
+            <input class="form-check-input text" type="radio" (change)="toggle()" formControlName="check1" form name="check1" value="" id="flexRadioDefault2" >
+            <label class="form-check-label" for="flexRadioDefault2">
+              OPT OUT-Do not Create a Foundation Google Analytics View or Goals for me
+            </label>
+          </div>
+          <p>If Opting Out, please explain why and whether you have an existing Google Analytics View you would like Foundation to reference for measurement & optimization guidance.</p>
+          <div class="input-group  text_area ">
+                       
+            <textarea class="form-control border border-1 border-secondary rounded-3 text" formControlName="textAreas"  aria-label="With textarea"></textarea>
+          </div>
+      </div>
+    
+      <div class="d-flex flex-column align-items-end mt-5">
+
+        <button type="submit" class="btn rounded-pill text-light  px-5 mb-5 save-btn">
+          save
+        </button>
+    
+      </div>
+  </div>
+  </form>
+ 

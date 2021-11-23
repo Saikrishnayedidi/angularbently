@@ -1,0 +1,17 @@
+$v-color: rgb(13, 0, 87);
+.save-btn{
+    background-color: $v-color;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red !important;
+}
+
+.error{
+border: 2px solid red!important;
+}
+.errorvalid{
+    border: 1px solid black !important;
+}
+input{
+    box-shadow: none !important;
+}
