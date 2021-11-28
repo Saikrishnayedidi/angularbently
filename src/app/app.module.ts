@@ -29,6 +29,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatSliderModule } from '@angular/material/slider';
 import { ChildSideNaveComponent } from './components/child-side-nave/child-side-nave.component';
 import { MaterialModule } from './material/material.module';
+import { AdsComponent } from './child/ads/ads.component';
+import { VideoComponent } from './child/video/video.component';
+import { AdsEnhancementsComponent } from './child/ads-enhancements/ads-enhancements.component';
+import { ServiceComponent } from './child/service/service.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { MaterialModule } from './material/material.module';
     GeoComponent,
     MeasurementComponent,
     BillingComponent,
-    ChildSideNaveComponent
+    ChildSideNaveComponent,
+    AdsComponent,
+    VideoComponent,
+    AdsEnhancementsComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,

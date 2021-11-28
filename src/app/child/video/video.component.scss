@@ -1,0 +1,41 @@
+$accodianColor:#eee;
+$tavledivcolor:#f8f9fa;
+.t{
+    font-size: 13px;
+}
+.doted{
+    border-right: 1px dotted gray!important;
+}
+.c{
+    color: #0090b2;
+}
+.form-check-input{
+    width: 20px;
+    height: 20px;
+    box-shadow: none!important;
+}
+.mat-expansion-panel{
+    box-shadow: none !important;
+    // background-color: red;
+  
+}
+.overcallBg{
+    background-color: #eee;
+}
+.bgdivColor{
+    background-color: $tavledivcolor;
+    // height: 2.5rem;
+}
+
+.input_money{
+    width: 7rem;
+    height: 25px;
+    border: 1px solid green;
+    
+}
+.vAllowed{
+    cursor: pointer;
+}
+.notAllowed{
+    cursor: not-allowed;
+}

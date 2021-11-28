@@ -5,6 +5,7 @@ import {
   ElementRef,
   OnChanges,
   DoCheck,
+  AfterViewInit,
 } from '@angular/core';
 import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
 import { MatAccordion } from '@angular/material/expansion';
@@ -16,8 +17,11 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './billing.component.html',
   styleUrls: ['./billing.component.scss'],
 })
-export class BillingComponent implements OnInit, OnChanges, DoCheck {
+export class BillingComponent
+  implements OnInit, OnChanges, DoCheck, AfterViewInit
+{
   @ViewChild(MatAccordion)
+  isAllowed=false
   storeData!: string;
   disabled: { [x: string]: any } = {};
   apollo: boolean = true;
@@ -63,7 +67,7 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
       input: 0,
     },
   ];
-
+  servicesForm!: FormGroup;
   ngOnInit() {
     this.billingForm = this.fb.group({
       apollo: [''],
@@ -72,9 +76,11 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
     });
 
     this.productsForm = this.fb.group({
-      quantity: [''],
-      pricePerFree: [''],
-      monthlyBudget: [''],
+      activeCustomer: this.fb.group({
+        quantity: [''],
+        pricePerFree: [''],
+        monthlyBudget: [''],
+      }),
       lostCustomer: this.fb.group({
         quantity: [''],
         pricePerFree: [''],
@@ -90,24 +96,48 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
         pricePerFree: [''],
         monthlyBudget3: [''],
       }),
-      allInDriveOff:this.fb.group({
+      allInDriveOff: this.fb.group({
         quantity: [''],
         pricePerFree: [''],
         monthlyBudget4: [''],
-      })
+      }),
+    });
+    this.servicesForm = this.fb.group({
+      ThankYouforPurchase: this.fb.group({
+        quantity: [''],
+        pricePerFree: [''],
+        monthlyBudgets: [''],
+      }),
+      introToService: this.fb.group({
+        quantity: [''],
+        pricePerFree: [''],
+        monthlyBudgets1: [''],
+      }),
     });
 
     this.billingForm.get('apollo')?.disable();
     this.billingForm.get('apolloText')?.disable();
     this.billingForm.get('apolloTransact')?.disable();
   }
-  ngOnChanges() {}
+  ngOnChanges() {
+  console.log('p',this.RententionTotal)
+  this._toggleServ.getParetData(this.total);
+  }
   sai: any;
-  ngDoCheck() {
-    this._toggleServ.getParetData(this.total);
+  totalRetentionChild!:number
+  serviceTotal!:number
 
-    // let s=this.totalProduct.toString()
-    // let doller="$"+s
+  totalRention!:any
+  ngDoCheck() {
+//     this._toggleServ.getParetData(this.total);
+//     // console.log((this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0)) 
+//      this.totalRetentionChild=(this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0)
+// this.serviceTotal=( this.RententionTotal||0)+(this.RententionTotal2||0)
+   this._toggleServ.serviceData.subscribe((res)=>{
+      this.serviceTotal=res
+   })
+   this.totalRention=(this.serviceTotal||0)+(this.TotalPrecisionMail1||0)+(this.TotalPrecisionMail||0)
+   this._toggleServ.getRetencation(this.totalRention)
   }
   toggle() {
     this.isValid = !this.isValid;
@@ -283,103 +313,15 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
   product1!: number;
   product2!: number;
 
-  //  quantity(e:any){
-  // // console.log(this.productsForm.value.quantity)
-  // if("loastQuantity"==e.target.id){
-  //   let data=e.target.value
-  //   this.product1=parseFloat(data)
-
-  // //   let s=(this.product1*(this.product2||0)).toString()
-  // //   let doller='$'+s
-
-  // //  this.totalProduct=doller
-  //  this.productsForm.patchValue({
-  //   lostCustomer:{
-  //     monthlyBudget:this.totalProduct
-  //   }
-
-  // })
-
-  // }
-  // if("activeQuantity"==e.target.id){
-  //   let data=e.target.value
-  //   this.product1=parseFloat(data)
-
-  //   // let s=(this.product1*(this.product2||0)).toString()
-  //   // let doller='$'+s
-  //   // this.totalProduct=doller
-  //   this.productsForm.patchValue({
-
-  //       monthlyBudget:this.totalProduct
-
-  //   })
-
-  // }
-
-  //  }
-  //    addDoller(e:any){
-  //     if("loastPrice"==e.target.id){
-  //       let data = (e.target as HTMLInputElement).value;
-  //       let controlName = (e.target as HTMLInputElement).name;
-  //     console.log(data)
-  //       this.productsForm.patchValue({
-  //         lostCustomer:{
-  //           [controlName]: this.currencyPipe.transform(
-  //             data,
-  //                 'USD',
-  //                 'symbol',
-
-  //               ),
-  //         }
-
-  //       });
-  //       this.product2=parseFloat(data)
-  //       let s=(this.product1*this.product2).toString()
-  //       let doller='$'+s
-
-  //      this.totalProduct=doller
-  //      this.productsForm.patchValue({
-  //       lostCustomer:{
-  //         monthlyBudget:this.totalProduct
-  //       }
-
-  //     })
-
-  //     }
-
-  //    if("activePrice"==e.target.id){
-  //    let data = (e.target as HTMLInputElement).value;
-  //    let controlName = (e.target as HTMLInputElement).name;
-  //  console.log(data)
-  //    this.productsForm.patchValue({
-
-  //        [controlName]: this.currencyPipe.transform(
-  //          data,
-  //              'USD',
-  //              'symbol',
-
-  //            ),
-
-  //    });
-  //    this.product2=parseFloat(data)
-  //    let s=(this.product1*this.product2).toString()
-  //    let doller='$'+s
-
-  //   this.totalProduct=doller
-
-  //   this.productsForm.patchValue({
-
-  //     monthlyBudget:this.totalProduct
-
-  // })
-  //   }
-  //    }
+ 
 
   finaltotal!: number;
   total1!: number;
   total2!: number;
   value1!: number;
   value2!: number;
+
+  storeDatas2: any;
 
   addDoller1(e: any, id: string, fromGropName: string) {
     console.log(e.target.dataset.name);
@@ -434,6 +376,13 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
   obj = [
     {
       eventname: 'Lost',
+      fInput: 'activeQuantity',
+      lInput: 'activePrice',
+      multipleTotal: 'mTotal',
+      sumTotal: 'sTotal',
+    },
+    {
+      eventname: 'Lost',
       fInput: 'loastQuantity',
       lInput: 'loastPrice',
       multipleTotal: 'mTotal1',
@@ -459,10 +408,18 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
       lInput: 'allInDriveOffPrice',
       multipleTotal: 'mTotal4',
       sumTotal: 'sTotal4',
-    }
+    },
   ];
 
   saiobj = [
+    {
+      title: 'In-Market(Active Customers)',
+      fGroupName: 'activeCustomer',
+      formFId: 'activeQuantity',
+      formLId: 'activePrice',
+      fControlName: 'monthlyBudget',
+      multipleTotal: 0,
+    },
     {
       title: 'In-Market(Lost Customers)',
       fGroupName: 'lostCustomer',
@@ -494,20 +451,18 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
       formLId: 'allInDriveOffPrice',
       fControlName: 'monthlyBudget4',
       multipleTotal: 0,
-    }
+    },
   ];
   arr: number[] = [];
   storeDatas!: any;
-  TotalPrecisionMail!:string
+  TotalPrecisionMail!: number;
   addDoller(e: any, id: string, fromGropName: string) {
     for (let i = 0; i < this.obj.length; i++) {
-     
       this.storeDatas = this.obj[i];
 
       if (this.storeDatas.eventname === e.target.dataset.name) {
         if (this.storeDatas.fInput == e.target.id) {
           this.value1 = e.target.value;
-          
         }
         if (this.storeDatas.lInput == e.target.id) {
           this.value2 = e.target.value;
@@ -522,7 +477,7 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
         }
 
         this.storeDatas.multipleTotal = this.value1 * (this.value2 || 0);
-  this.arr.push(this.storeDatas.multipleTotal)
+        this.arr.push(this.storeDatas.multipleTotal);
         this.productsForm.patchValue({
           [fromGropName]: {
             [id]: '$' + this.storeDatas.multipleTotal,
@@ -531,51 +486,147 @@ export class BillingComponent implements OnInit, OnChanges, DoCheck {
       }
     }
 
-    if ('Active' == e.target.dataset.name) {
-      if ('activeQuantity' == e.target.id) {
-        this.value1 = e.target.value;
-      }
-      if ('activePrice' == e.target.id) {
-        this.value2 = e.target.value;
-        let data = (e.target as HTMLInputElement).value;
-        let controlName = (e.target as HTMLInputElement).name;
-
-        this.productsForm.patchValue({
-          [controlName]: this.currencyPipe.transform(data, 'USD', 'symbol'),
-        });
-      }
-
-      let total1 = this.value1 * (this.value2 || 0);
-
-      this.total2 = total1;
-  
-      this.productsForm.patchValue({
-        monthlyBudget: '$' + total1,
-      });
-
-    }
-    let unique=[...new Set(this.arr)]
-
-    let one=this.productsForm.value.lostCustomer.monthlyBudget1
-    let s1=one.substring(1,one.length)
+    let unique = [...new Set(this.arr)];
+    let zero = this.productsForm.value.activeCustomer.monthlyBudget;
+    let s0 = zero.substring(1, zero.length);
+    let n0 = parseFloat(s0);
+    let one = this.productsForm.value.lostCustomer.monthlyBudget1;
+    let s1 = one.substring(1, one.length);
     // console.log(s1)
-    let n1=parseFloat(s1)
-    let two=this.productsForm.value.sameBrands.monthlyBudget2
-    let s2=two.substring(1,two.length)
-    let n2=parseFloat(s2)
+    let n1 = parseFloat(s1);
+    let two = this.productsForm.value.sameBrands.monthlyBudget2;
+    let s2 = two.substring(1, two.length);
+    let n2 = parseFloat(s2);
     // console.log(s2)
-    let three=this.productsForm.value.tradeValue.monthlyBudget3
-    let s3=three.substring(1,three.length)
-    let n3=parseFloat(s3)
-    let four=this.productsForm.value.allInDriveOff.monthlyBudget4
-    let s4=three.substring(1,four.length)
-    let n4=parseFloat(s4)
+    let three = this.productsForm.value.tradeValue.monthlyBudget3;
+    let s3 = three.substring(1, three.length);
+    let n3 = parseFloat(s3);
+    let four = this.productsForm.value.allInDriveOff.monthlyBudget4;
+    let s4 = four.substring(1, four.length);
+    let n4 = parseFloat(s4);
     // console.log(s3)
-    // console.log(this.productsForm.value.lostCustomer.monthlyBudget1 + this.productsForm.value.sameBrands.monthlyBudget12 + this.productsForm.value.tradeValue.monthlyBudget3)
-         let sum= (n1||0)+(n2||0)+(n3||0)+(n4||0)+(this.total2||0)
+    //  console.log('all',this.productsForm.value.activeCustomer.monthlyBudget+this.productsForm.value.lostCustomer.monthlyBudget1+this.productsForm.value.sameBrands.monthlyBudget2 + this.productsForm.value.tradeValue.monthlyBudget3+this.productsForm.value.allInDriveOff.monthlyBudget4)
+    //  console.log('4',this.productsForm.value.allInDriveOff.monthlyBudget4)
+    //  console.log("sum",(s0||0)+(s1||0)+(s2||0)+(s3||0)+(s4||0))
+    this.totalPrecisionMailNum=(n0 || 0) + (n1 || 0) + (n2 || 0) + (n3 || 0) + (n4 || 0);
+    let sum = (n0 || 0) + (n1 || 0) + (n2 || 0) + (n3 || 0) + (n4 || 0);
 
-    this.TotalPrecisionMail="$"+sum
+    this.TotalPrecisionMail =  sum;
   }
 
+  saiObj1 = [
+    {
+      title: 'Thank You for Purchase (Customers)',
+      fGroupName: 'ThankYouforPurchase',
+      formFId: 'customersPurchase',
+      formLId: 'customersPrice',
+      fControlName: 'monthlyBudgets',
+      multipleTotal: 0,
+    },
+    {
+      title: 'Intro to Service (Customers)',
+      fGroupName: 'introToService',
+      formFId: 'customersintroToService',
+      formLId: 'customersintroToS',
+      fControlName: 'monthlyBudgets1',
+      multipleTotal: 0,
+    },
+  ];
+  obj1 = [
+    {
+      eventname: 'customer',
+      fInput: 'customersPurchase',
+      lInput: 'customersPrice',
+      multipleTotal: 'mTotal1',
+      sumTotal: 'sTotal1',
+    },
+    {
+      eventname: 'customer',
+      fInput: 'customersintroToService',
+      lInput: 'customersintroToS',
+      multipleTotal: 'mTotal2',
+      sumTotal: 'sTotal2',
+    },
+  ];
+  TotalPrecisionMail1!: number;
+  addDoller2(e: any, id: string, fromGropName: string) {
+    for (let i = 0; i < this.obj1.length; i++) {
+      this.storeDatas2 = this.obj1[i];
+
+      if (this.storeDatas2.eventname === e.target.dataset.name) {
+        if (this.storeDatas2.fInput == e.target.id) {
+          this.value1 = e.target.value;
+        }
+        if (this.storeDatas2.lInput == e.target.id) {
+          this.value2 = e.target.value;
+          let data = (e.target as HTMLInputElement).value;
+          let controlName = (e.target as HTMLInputElement).name;
+
+          this.servicesForm.patchValue({
+            [fromGropName]: {
+              [controlName]: this.currencyPipe.transform(data, 'USD', 'symbol'),
+            },
+          });
+        }
+
+        this.storeDatas2.multipleTotal = this.value1 * (this.value2 || 0);
+        this.arr.push(this.storeDatas2.multipleTotal);
+        this.servicesForm.patchValue({
+          [fromGropName]: {
+            [id]: '$' + this.storeDatas2.multipleTotal,
+          },
+        });
+      }
+    }
+    let one = this.servicesForm.value.ThankYouforPurchase.monthlyBudgets;
+    let s1 = one.substring(1, one.length);
+    // // console.log(s1)
+    let n1 = parseFloat(s1);
+    let two = this.servicesForm.value.introToService.monthlyBudgets1;
+    let s2 = two.substring(1, two.length);
+    let n2 = parseFloat(s2);
+    // // console.log(s2)
+    // // let three=this.productsForm.value.tradeValue.monthlyBudget3
+    // // let s3=three.substring(1,three.length)
+    // // let n3=parseFloat(s3)
+    // // let four=this.productsForm.value.allInDriveOff.monthlyBudget4
+    // // let s4=three.substring(1,four.length)
+    // // let n4=parseFloat(s4)
+    // // console.log(s3)
+    // // console.log(this.productsForm.value.lostCustomer.monthlyBudget1 + this.productsForm.value.sameBrands.monthlyBudget12 + this.productsForm.value.tradeValue.monthlyBudget3)
+    this.totalPrecisionMail1Num=(n1 || 0) + (n2 || 0);
+    let sum = (n1 || 0) + (n2 || 0);
+    // console.log(sum)
+    this.TotalPrecisionMail1 =  sum;
+    // console.log(this.servicesForm.value.introToService.monthlyBudgets1)
+  }
+  totalPrecisionMailNum!:number
+  totalPrecisionMail1Num!:number
+
+  @ViewChild('check2')
+  check2!: ElementRef;
+  @ViewChild('check1')
+  check1!: ElementRef;
+ @ViewChild('parent2')
+ parent2!:ElementRef
+  ngAfterViewInit() {}
+ 
+  formGroupName!: string;
+  lineAmount!: number;
+  valus1!: number;
+  valus2!:number
+  display: { [y: string]: any } = {};
+ 
+ 
+
   
+  RententionTotalNum!:number
+  RententionTotal!: number;
+  RententionTotal2!: number;
+ 
+ 
+
+  @ViewChild('disables') disable!:ElementRef
+
+
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 // import { BillingComponent } from '../components/billing/billing.component';
 
 
@@ -27,7 +28,14 @@ export class UploadService {
  
 // })
 // }
+ value!:number
+removeDoller(data:any):Observable<any>{
  
-
+  let m=data.substring(1,data.length)
+ this.value=parseFloat(m)
+   
+ return of(this.value)
+  
+}
   
 }

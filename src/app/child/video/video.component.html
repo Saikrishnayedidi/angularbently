@@ -1,0 +1,166 @@
+<form [formGroup]="videoForm">
+<mat-expansion-panel class="overcallBg mt-4"  expanded="false">
+
+    <mat-expansion-panel-header class="rounded-pill bg-white border">
+      <mat-panel-title class="c"> Video </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="d-flex justify-content-between bgdivColor py-2 px-1 mt-3">
+      <span class="col-6">products&service</span>
+      <span class="col-3 text-end">Monthly Free</span>
+      <span class="col-3 text-end">Line Amount</span>
+    </div>
+    <mat-expansion-panel
+      class="mt-5 overcallBg"
+      hideToggle="true"
+      [expanded]="true"
+    >
+      <mat-expansion-panel-header
+        class="border bg-white"
+        #panelH
+        (click)="panelH._toggle()"
+      >
+        <mat-panel-title class="d-flex justify-content-between">
+            <div class="adsform" >
+          <div class="d-flex col-12">
+            <div class="form-check d-flex align-items-center">
+              <input
+                class="form-check-input me-2"
+                type="checkbox"
+                value=""
+                (change)="videoCheck($event)"
+                id="defaultCheck1"
+                name="n1"
+               
+              />
+              <label class="form-check-label t mt-1" for="defaultCheck1">
+                Advid Package
+              </label>
+              <i
+                class="fas fa-angle-right fs-4 ms-4"
+                (click)="panelH._toggle()"
+              ></i>
+            </div>
+          </div>
+          </div>
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+        <div formGroupName="vAdvidPackage" >
+          <div class="col-3 text-end mt-2" >
+            <input
+              type="text"
+              data-name="parent"
+              dir="rtl"
+              name="vMonthleyFree"
+              (blur)="videoPercentage($event,'vAdvidPackage','vMonthlyFree','dummy','dummy','dummy','dummy','dummy')"
+              formControlName="vMonthlyFree"
+              class="input_money me-1"
+            />
+          </div>
+        </div>
+        <div class="col-3 text-end mt-2">
+          <span >{{vLineAmount | currency:'USD'}}</span>
+        </div>
+      </mat-expansion-panel-header>
+      <div class="" [ngClass]="isAllowed ? 'vAllowed' :'notAllowed'" >
+      <div class="d-flex bgdivColor mt-3 px-2 py-2 align-items-center">
+        <div class="col-2">
+            <span>Products & Services</span>
+        </div>
+        <div class="col-3 text-end">
+            <span>Percentage</span>
+        </div>
+        <div class="col-2 text-end">
+            <span>Percentage Fee</span>
+        </div>
+        <div class="col-3 text-end">
+            <span>Monthly Budget</span>
+        </div>
+        <div class="col-2 text-end">
+            <span>Line Amount</span>
+        </div>
+      </div>
+       <div class="d-flex bgdivColor mt-3 px-2 py-2 align-items-center " formGroupName="vAdvidNew">
+           <div class="col-2">
+               <span class="t">Advid-New</span>
+           </div>
+           <div class="col-3 text-end">
+            <input
+            type="text"
+            data-name="vPercentage"
+            dir="rtl"
+            name="vPercentage"
+            (blur)="videoPercentage($event,'vAdvidNew','dummy','vPercentage','vPercentagefee','vLineAmount1','vPercentage','vMonthlyBudget')"
+            formControlName="vPercentage"
+            class="input_money me-1"
+          />
+        </div>
+        <div class="col-2 text-end">
+            <span>{{display.vPercentagefee | currency:'USD'}}</span>
+        </div>
+        <div class="col-3 text-end">
+            <input
+            type="text"
+            data-name="vMonthlyBudget"
+            dir="rtl"
+            name="vMonthlyBudget"
+            (blur)="videoPercentage($event,'vAdvidNew','vMonthlyBudget','dummy','vPercentagefee','vLineAmount1','vPercentage','vMonthlyBudget')"
+            formControlName="vMonthlyBudget"
+            class="input_money me-1"
+          />
+        </div>
+        <div class="col-2 text-end">
+             <span>{{display.vLineAmount1|currency:'USD'}}</span>
+        </div>
+
+       </div>
+       <div class="d-flex bgdivColor mt-3 px-2 py-2 align-items-center " formGroupName="vAdvidPreOwned">
+        <div class="col-2">
+            <span class="t">Advid-Pre-Owned</span>
+        </div>
+        <div class="col-3 text-end">
+         <input
+         type="text"
+         data-name="vPercentage"
+         dir="rtl"
+         name="vPercentage"
+         (blur)="videoPercentage($event,'vAdvidPreOwned','dummy','vPercentage','vPercentagefee1','vLineAmount2','vPercentage1','vMonthlyBudget1')"
+         formControlName="vPercentage"
+         class="input_money me-1"
+       />
+     </div>
+     <div class="col-2 text-end">
+         <span>{{display.vPercentagefee1 | currency:'USD'}}</span>
+     </div>
+     <div class="col-3 text-end">
+         <input
+         type="text"
+         data-name="vMonthlyBudget"
+         dir="rtl"
+         name="vMonthlyBudget"
+         (blur)="videoPercentage($event,'vAdvidPreOwned','vMonthlyBudget','dummy','vPercentagefee1','vLineAmount2','vPercentage1','vMonthlyBudget1')"
+         formControlName="vMonthlyBudget"
+         class="input_money me-1"
+       />
+     </div>
+     <div class="col-2 text-end">
+          <span>{{display.vLineAmount2|currency:'USD'}}</span>
+     </div>
+
+   
+
+    </div>
+    <div class="d-flex mt-2 bg-white py-3 px-2 justify-content-between">
+        <div class="c">Total Advid Package</div>
+        <span class="c">{{videoTotal|currency:'USD'}}</span>
+    </div>
+    
+     </div>  
+    </mat-expansion-panel>
+    <!-- ?new matexpansionpanel -->
+   <div class="c fs-5 d-flex d-flex justify-content-between py-3 px-2 mt-5 bg-white">
+       <div>total</div>
+       <span>{{videoTotal|currency:'USD'}}</span>
+
+   </div>
+  </mat-expansion-panel>
+</form>

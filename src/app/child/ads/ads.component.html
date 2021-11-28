@@ -1,0 +1,579 @@
+<mat-expansion-panel class="overcallBg mt-4"  expanded="true">
+  <mat-expansion-panel-header class="rounded-pill bg-white border">
+    <mat-panel-title class="c"> Ads </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="d-flex justify-content-between bgdivColor py-2 px-1 mt-3">
+    <span class="col-6">products&service</span>
+    <span class="col-3 text-end">Monthly Free</span>
+    <span class="col-3 text-end">Line Amount</span>
+  </div>
+  <mat-expansion-panel
+    class="mt-5 overcallBg"
+    hideToggle="true"
+    [expanded]="isExpand1"
+  >
+    <mat-expansion-panel-header
+      class="border bg-white"
+      #panelH
+      (click)="panelH._toggle()"
+    >
+      <mat-panel-title class="d-flex justify-content-between">
+          <form class="adsform">
+        <div class="d-flex col-12">
+          <div class="form-check d-flex align-items-center">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              (change)="checkbox($event)"
+              id="defaultCheck1"
+              name="n1"
+              #checkBox1
+            />
+            <label class="form-check-label t mt-1" for="defaultCheck1">
+              Base Advertising Package
+            </label>
+            <i
+              class="fas fa-angle-right fs-4 ms-4"
+              (click)="panelH._toggle()"
+            ></i>
+          </div>
+        </div>
+        </form>
+      </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+      <form [formGroup]="adsForm">
+        <div class="col-3 text-end mt-2" formGroupName='adsForm1'>
+          <input
+            type="text"
+            data-name="parent"
+            dir="rtl"
+            name="monthleyFree"
+            (blur)="percentage($event,'adsForm1','PercentageFeeNum8','lineAmountNum0','percentageNum9','monthlyBudgetNum0','monthleyFre3')"
+            formControlName="monthleyFee"
+            class="input_money me-1"
+          />
+        </div>
+      </form>
+      <div class="col-3 text-end mt-2">
+        <span #line>{{display.lineAmountNum0| currency:'USD'}}</span>
+      </div>
+    </mat-expansion-panel-header>
+    <form [formGroup]="baseAdvertisingPackage">
+    <div class="side_scroll " [ngClass]="isNotAllowed ? 'allowed':'notallowed'">
+        <div class="d-flex justify-content-between bgdivColor  px-2 mt-3">
+            <div class="col-2">
+              <span>Products & Services</span>
+            </div>
+            <div class="col-2 text-end">
+              <span>Percentage </span>
+            </div>
+            <div class="col-1 text-end">
+              <span class="text-end ms-2"> Percentage Fee</span>
+            </div>
+            <span class="col-2 text-end">
+              <span class="text-end"> Monthly Fee</span>
+            </span>
+            <span class="col-2 text-end">
+              <span class="text-end"> Quantity</span>
+            </span>
+            <span class="col-2 text-end">
+              <span class="text-end"> Price Per Fee</span>
+            </span>
+            <span class="col-2 bgdivColor   text-end">
+              <span class="text-end"> Monthly Budget</span>
+            </span>
+            <span class="col-1 bgdivColor  text-end">
+              <span class="text-end"> Line Amount</span>
+            </span>
+          </div>
+          <div class="d-flex mt-3" formGroupName="searchNew">
+            <div class="col-2 t bgdivColor ps-2 py-3 ">Search-New</div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="percentage"
+                dir="rtl"
+                (blur)="percentage($event,'searchNew','PercentageFeeNum','lineAmountNum','percentageNum','monthlyBudgetNum','monthleyFre')"
+                name="monthleyFree"
+                formControlName="percentage"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+              <span class="">{{display.PercentageFeeNum | currency:'USD'}}</span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""> </span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="percentage($event,'searchNew','PercentageFeeNum','lineAmountNum','percentageNum','monthlyBudgetNum','monthleyFre')"
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 text-end">
+              <span class=""> t {{display.lineAmountNum |currency:'USD'}}</span>
+            </div>
+          </div>
+          <div class="d-flex   mt-3" formGroupName='searchPreOwned'>
+            <div class="col-2 bgdivColor ps-2 t py-3">Search-Pre Owned</div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="percentage"
+                dir="rtl"
+                (blur)="percentage($event,'searchPreOwned','PercentageFeeNum1','lineAmountNum1','percentageNum2','monthlyBudgetNum2','monthleyFre')"
+                name="monthleyFree"
+                formControlName="percentage"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted  text-end">
+              <span class="">{{display.PercentageFeeNum1 | currency:'USD'}}</span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""> </span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="percentage($event,'searchPreOwned','PercentageFeeNum1','lineAmountNum1','percentageNum2','monthlyBudgetNum2','monthleyFre')"
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3  text-end">
+              <span class=""> {{display.lineAmountNum1 |currency:'USD'}}</span>
+            </div>
+          </div>
+          <div class="d-flex  mt-3 mb-5" formGroupName='advidNew'>
+            <div class="col-2 t bgdivColor ps-2 doted py-3 ">Advid-New</div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="percentage"
+                dir="rtl"
+                (blur)="percentage($event,'advidNew','PercentageFeeNum2','lineAmountNum2','percentageNum3','monthlyBudgetNum3','monthleyFre')"
+                name="monthleyFree"
+                formControlName="percentage"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+              <span class="">{{display.PercentageFeeNum2 | currency:'USD'}}</span>
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <div class="">
+                <input
+                type="text"
+                id="newColumn"
+                data-name="doller"
+                dir="rtl"
+                (blur)="percentage($event,'advidNew','PercentageFeeNum2','lineAmountNum2','percentageNum3','monthlyBudgetNum3','monthleyFre')"
+                name="monthleyFre"
+                formControlName="monthlyfree"
+                class="input_money me-1"
+              />      </div>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2  bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="percentage($event,'advidNew','PercentageFeeNum2','lineAmountNum2','percentageNum3','monthlyBudgetNum3','monthleyFre')"
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+              <span class=""> {{display.lineAmountNum2 |currency:'USD'}}</span>
+            </div>
+          </div>
+          <!-- newblock -->
+          <div class="d-flex  mt-3 " formGroupName='customAdvid'>
+            <div class="col-2 t bgdivColor py-3 ps-2 doted">Custom Advid Template</div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+            
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              
+                    
+            </div>
+            <div class="col-2  bgdivColor py-3 doted text-end">
+                <input
+                type="text"
+                data-name="quantity"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="custom($event,'customAdvid','quantityNum','pricePerFee','lineAmountCustom')"
+                formControlName="quantity"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-2  bgdivColor py-3 doted text-end">
+                <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="custom($event,'customAdvid','quantityNum','pricePerFee','lineAmountCustom')"
+                formControlName="pricePerFee"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                
+                dir="rtl"
+                name="monthleyFree"
+               
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3  text-end">
+              <span class=""> {{display.lineAmountCustom |currency:'USD'}}</span>
+            </div>
+          </div>
+         
+         <div class="mt-2 py-3  px-2 d-flex " >
+     <span class="c col-6 ">
+      Total Base Advertising Package
+     </span>
+     <span class="c col-6 ">
+      
+     </span>
+     <span class="c col-2  text-end" >{{totalBaseAdvertisingPackage| currency:'USD'}}</span>
+         </div>
+
+    </div>
+    </form>
+   
+ 
+  </mat-expansion-panel>
+  <!-- ?new matexpansionpanel -->
+  <mat-expansion-panel
+    class="mt-5 overcallBg"
+    hideToggle="true"
+    [expanded]="isExpand2"
+  >
+    <mat-expansion-panel-header
+      class="border bg-white"
+      #panelH1
+      (click)="panelH1._toggle()"
+    >
+      <mat-panel-title class="d-flex justify-content-between">
+          <form class="adsform">
+        <div class="d-flex col-12">
+          <div class="form-check d-flex align-items-center">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              #checkBox2
+             
+              (change)="checkbox($event)"
+              id="defaultCheck2"
+              name="n1"
+            />
+            <label class="form-check-label t mt-1" for="defaultCheck1">
+              Plus Advertising Package
+            </label>
+            <i
+              class="fas fa-angle-right fs-4 ms-4"
+              (click)="panelH1._toggle()"
+            ></i>
+          </div>
+        </div>
+        </form>
+      </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+      <form [formGroup]="adsForm">
+        <div class="col-3 text-end mt-2" formGroupName='adsForm2'>
+          <input
+            type="text"
+            data-name="parent"
+            dir="rtl"
+            #data1
+            name="monthleyFree"
+            (blur)="percentage($event,'adsForm2','PercentageFeeNum8','pluslineAmountNum0','percentageNum9','monthlyBudgetNum0','monthleyFre3')"
+            formControlName="monthleyFee"
+            class="input_money me-1"
+          />
+        </div>
+      </form>
+      <div class="col-3 text-end mt-2">
+        <span>{{display.pluslineAmountNum0| currency:'USD'}}</span>
+      </div>
+    </mat-expansion-panel-header>
+    <form [formGroup]="baseAdvertisingPackage">
+    <div class="side_scroll " >
+        <div class="d-flex justify-content-between bgdivColor  px-2 mt-3">
+            <div class="col-2">
+              <span>Products & Services</span>
+            </div>
+            <div class="col-2 text-end">
+              <span>Percentage </span>
+            </div>
+            <div class="col-1 text-end">
+              <span class="text-end ms-2"> Percentage Fee</span>
+            </div>
+            <span class="col-2 text-end">
+              <span class="text-end"> Monthly Fee</span>
+            </span>
+            <span class="col-2 text-end">
+              <span class="text-end"> Quantity</span>
+            </span>
+            <span class="col-2 text-end">
+              <span class="text-end"> Price Per Fee</span>
+            </span>
+            <span class="col-2 bgdivColor   text-end">
+              <span class="text-end"> Monthly Budget</span>
+            </span>
+            <span class="col-1 bgdivColor  text-end">
+              <span class="text-end"> Line Amount</span>
+            </span>
+          </div>
+          <div class="d-flex mt-3" formGroupName="plusSearchNew">
+            <div class="col-2 t bgdivColor ps-2 py-3 ">Search-New</div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="percentage"
+                dir="rtl"
+                (blur)="percentage($event,'plusSearchNew','plusPercentageFeeNum','pluslineAmountNum','pluspercentageNum','plusmonthlyBudgetNum','monthleyFre')"
+                name="monthleyFree"
+                formControlName="percentage"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+              <span class="">{{display.plusPercentageFeeNum | currency:'USD'}}</span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""> </span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="percentage($event,'plusSearchNew','plusPercentageFeeNum','pluslineAmountNum','pluspercentageNum','plusmonthlyBudgetNum','monthleyFre')"
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 text-end">
+              <span class="">  {{display.pluslineAmountNum |currency:'USD'}}</span>
+            </div>
+          </div>
+          <div class="d-flex   mt-3" formGroupName='plusSearchPreOwned'>
+            <div class="col-2 bgdivColor ps-2 t py-3">Search-Pre Owned</div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="percentage"
+                dir="rtl"
+                (blur)="percentage($event,'plusSearchPreOwned','plusPercentageFeeNum1','pluslineAmountNum1','pluspercentageNum2','plusmonthlyBudgetNum2','monthleyFre')"
+                name="monthleyFree"
+                formControlName="percentage"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted  text-end">
+              <span class="">{{display.plusPercentageFeeNum1 | currency:'USD'}}</span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""> </span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="percentage($event,'plusSearchPreOwned','plusPercentageFeeNum1','pluslineAmountNum1','pluspercentageNum2','plusmonthlyBudgetNum2','monthleyFre')"
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3  text-end">
+              <span class=""> {{display.pluslineAmountNum1 |currency:'USD'}}</span>
+            </div>
+          </div>
+          <div class="d-flex  mt-3 mb-5" formGroupName='plusAdvidNew'>
+            <div class="col-2 t bgdivColor ps-2 doted py-3 ">Advid-New</div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="percentage"
+                dir="rtl"
+                (blur)="percentage($event,'plusAdvidNew','plusPercentageFeeNum2','pluslineAmountNum2','pluspercentageNum3','plusmonthlyBudgetNum3','monthleyFre')"
+                name="monthleyFree"
+                formControlName="percentage"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+              <span class="">{{display.plusPercentageFeeNum2 | currency:'USD'}}</span>
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <div class="">
+                <input
+                type="text"
+                id="newColumn"
+                data-name="doller"
+                dir="rtl"
+                (blur)="percentage($event,'plusAdvidNew','plusPercentageFeeNum2','pluslineAmountNum2','pluspercentageNum3','plusmonthlyBudgetNum3','monthleyFre')"
+                name="monthleyFre"
+                formControlName="monthlyfree"
+                class="input_money me-1"
+              />      </div>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              <span class=""></span>
+            </div>
+            <div class="col-2  bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="percentage($event,'plusAdvidNew','plusPercentageFeeNum2','pluslineAmountNum2','pluspercentageNum3','plusmonthlyBudgetNum3','monthleyFre')"
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+              <span class=""> {{display.pluslineAmountNum2 |currency:'USD'}}</span>
+            </div>
+          </div>
+          <!-- newblock -->
+          <div class="d-flex  mt-3 " formGroupName='plusCustomAdvid'>
+            <div class="col-2 t bgdivColor py-3 ps-2 doted">Custom Advid Template</div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              
+            </div>
+            <div class="col-1 t bgdivColor py-3 doted text-end">
+            
+            </div>
+            <div class="col-2 t bgdivColor py-3 doted text-end">
+              
+                    
+            </div>
+            <div class="col-2  bgdivColor py-3 doted text-end">
+                <input
+                type="text"
+                data-name="quantity"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="custom($event,'plusCustomAdvid','plusquantityNum','pluspricePerFee','pluslineAmountCustom')"
+                formControlName="quantity"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-2  bgdivColor py-3 doted text-end">
+                <input
+                type="text"
+                data-name="doller"
+                dir="rtl"
+                name="monthleyFree"
+                (blur)="custom($event,'plusCustomAdvid','plusquantityNum','pluspricePerFee','pluslineAmountCustom')"
+                formControlName="pricePerFee"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-2 bgdivColor py-3 doted text-end">
+              <input
+                type="text"
+                
+                dir="rtl"
+                name="monthleyFree"
+               
+                formControlName="monthlyBudget"
+                class="input_money me-1"
+              />
+            </div>
+            <div class="col-1 t bgdivColor py-3  text-end">
+              <span class=""> {{display.pluslineAmountCustom |currency:'USD'}}</span>
+            </div>
+          </div>
+         
+         <div class="mt-2 py-3  px-2 d-flex " >
+     <span class="c col-6 ">
+      Total Base Advertising Package
+     </span>
+     <span class="c col-6 ">
+      
+     </span>
+     <span class="c col-2  text-end">{{totalPlusAdvertisingPackage| currency:'USD'}}</span>
+         </div>
+
+    </div>
+    </form>
+
+ 
+   
+ 
+  </mat-expansion-panel>
+  <app-video></app-video>
+
+  <app-ads-enhancements  ></app-ads-enhancements>
+
+  <div class="d-flex c mt-4 justify-content-between py-3 px-2 bg-white fs-5">
+    <div>
+      total Ads
+    </div>
+    <div>
+     {{totalAd |currency:'USD'}}
+    </div>
+  </div>
+</mat-expansion-panel>

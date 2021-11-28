@@ -1,6 +1,6 @@
 <div class="dashbord d-flex">
   <div
-    class="container_ me-4"
+    class="container_ me-1 overcallBg"
     [ngClass]="isValid ? 'container_small' : 'container_big'"
   >
     <div>
@@ -14,14 +14,14 @@
         </div>
       </nav>
       <div class="m-5">
-        <mat-accordion class="example-headers-align" multi>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header class="rounded-pill border">
-              <mat-panel-title> Apollo Technology Platform </mat-panel-title>
+        <mat-accordion class="example-headers-align overcallBg" multi>
+          <mat-expansion-panel class="overcallBg">
+            <mat-expansion-panel-header class="rounded-pill bg-light border">
+              <mat-panel-title class="c"> Apollo Technology Platform </mat-panel-title>
             </mat-expansion-panel-header>
-            <form [formGroup]="billingForm">
-              <div class="d-flex justify-content-between bgColor mt-3">
-                <div class="col-3">
+            <form class="overcallBg" [formGroup]="billingForm">
+              <div class="d-flex justify-content-between overcallBg bgColor mt-3">
+                <div class="col-3 overcallBg">
                   <div class="pt-3 ps-2">Products & services</div>
                   <div class="doted py-2 ps-2 bgdivColor mt-3">Apollo</div>
                   <div class="doted py-2 ps-2 bgdivColor mt-3">Apollo text</div>
@@ -30,7 +30,7 @@
                   </div>
                 </div>
 
-                <div class="col-3">
+                <div class="col-3 overcallBg">
                   <div class="text-end pe-3 pt-3"><span>off/On</span></div>
 
                   <div class="text-end doted bgdivColor py-2 pe-2 mt-3">
@@ -53,7 +53,7 @@
                   </div>
                 </div>
 
-                <div class="col-3">
+                <div class="col-3 overcallBg">
                   <div class="text-end pe-3 pt-3"><span>Monthly Fee</span></div>
                   <div class="text-end doted bgdivColor py-2 pe-1 mt-3">
                     <input
@@ -86,7 +86,7 @@
                     />
                   </div>
                 </div>
-                <div class="col-3">
+                <div class="col-3 overcallBg">
                   <div class="text-end pe-3 pt-3"><span>Line Amount</span></div>
                   <div
                     *ngIf="apollo; else elseBlocks"
@@ -123,437 +123,232 @@
                   </ng-template>
                 </div>
               </div>
-              <div class="d-flex justify-content-between">
-                <div>Total Apollo Technology Platform</div>
-                <div class="me-2 fs-5">{{ doller }}</div>
+              <div class="d-flex justify-content-between bgdivColor mt-3">
+                <div class="py-2 c">Total Apollo Technology Platform</div>
+                <div class="me-2 py-2 c fs-5">{{ doller }}</div>
               </div>
             </form>
           </mat-expansion-panel>
-          <mat-expansion-panel class="mt-4" expanded="true">
-            <mat-expansion-panel-header class="rounded-pill border">
+          <mat-expansion-panel class="mt-4 overcallBg"  expanded="true">
+            <mat-expansion-panel-header class="rounded-pill bg-white border">
               <mat-panel-title class="fs-5 c"> Retention </mat-panel-title>
               <mat-panel-description> </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-expansion-panel class="mt-4" expanded="true">
-              <mat-expansion-panel-header class="rounded-pill border">
-                <mat-panel-title class="fs-5 c"> Service </mat-panel-title>
-                <mat-panel-description> </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div class="d-flex justify-content-between mt-3">
-                <span class="col-4">products&service</span>
-                <span class="col-4 text-end">products&service</span>
-                <span class="col-4 text-end">products&service</span>
-              </div>
-              <mat-expansion-panel
-                class="mt-5"
-                hideToggle="true"
-                expanded="true"
-              >
-                <mat-expansion-panel-header
-                  class="border"
-                  #panelH
-                  (click)="panelH._toggle()"
-                >
-                  <mat-panel-title>
-                    <div class="form-check d-flex align-items-center">
-                      <input
-                        class="form-check-input me-2"
-                        type="checkbox"
-                        value=""
-                        id="defaultCheck1"
-                      />
-                      <label class="form-check-label mt-1" for="defaultCheck1">
-                        Service Retention (Customer Exclusive)
-                      </label>
-                      <i
-                        class="fas fa-angle-right fs-4 ms-4"
-                        (click)="panelH._toggle()"
-                      ></i>
-                    </div>
-                  </mat-panel-title>
-                  <mat-panel-description> </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div>
-                  <div
-                    class="
-                      d-flex
-                      bgColor
-                      py-3
-                      px-3
-                      justify-content-between
-                      mt-3
-                    "
-                  >
-                    <span class="col-5">products&service</span>
-                    <span class="col-5 text-end">products&service</span>
-                    <span class="col-2 text-end">products&service</span>
-                  </div>
-                  <div class="d-flex bgColor align-items-center py-2 mt-3 px-3">
-                    <span class="col-5 doted t">Search - Service</span>
+           
 
-                    <div class="text-end doted bgdivColor pt-2 px-3 col-5">
-                      <input type="text" id="" class="input_money" />
-                    </div>
-                    <div class="col-2 text-end">125</div>
-                  </div>
-                  <div class="d-flex bgColor align-items-center py-2 mt-3 px-3">
-                    <span class="col-5 doted t">Search - Service</span>
 
-                    <div class="text-end doted bgdivColor pt-2 px-3 col-5">
-                      <input type="text" id="" class="input_money" />
-                    </div>
-                    <div class="col-2 text-end">125</div>
-                  </div>
-                  <div
-                    class="
-                      d-flex
-                      align-items-center
-                      bgColor
-                      mt-3
-                      py-2
-                      px-3
-                      justify-content-between
-                    "
-                  >
-                    <span class="c"
-                      >Total Service Retention (Customer Exclusive)</span
-                    >
-                    <div>$70</div>
-                  </div>
-                </div>
-              </mat-expansion-panel>
-              <mat-expansion-panel
-                class="mt-5"
-                hideToggle="true"
-                expanded="true"
-              >
-                <mat-expansion-panel-header
-                  class="border"
-                  #panelH
-                  (click)="panelH._toggle()"
-                >
-                  <mat-panel-title>
-                    <div class="form-check d-flex align-items-center">
-                      <input
-                        class="form-check-input me-2"
-                        type="checkbox"
-                        value=""
-                        id="defaultCheck1"
-                      />
-                      <label class="form-check-label mt-1" for="defaultCheck1">
-                        Service Retention
-                      </label>
-                      <i
-                        class="fas fa-angle-right fs-4 ms-4"
-                        (click)="panelH._toggle()"
-                      ></i>
-                    </div>
-                  </mat-panel-title>
-                  <mat-panel-description> </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div>
-                  <div
-                    class="
-                      d-flex
-                      bgColor
-                      py-3
-                      px-3
-                      justify-content-between
-                      mt-3
-                    "
-                  >
-                    <span class="col-5">products&service</span>
-                    <span class="col-5 text-end">products&service</span>
-                    <span class="col-2 text-end">products&service</span>
-                  </div>
-                  <div class="d-flex bgColor align-items-center py-2 mt-3 px-3">
-                    <span class="col-5 doted t">Search - Service</span>
-
-                    <div class="text-end doted bgdivColor pt-2 px-3 col-5">
-                      <input type="text" id="" class="input_money" />
-                    </div>
-                    <div class="col-2 text-end">125</div>
-                  </div>
-                  <div class="d-flex bgColor align-items-center py-2 mt-3 px-3">
-                    <span class="col-5 doted t">Search - Service</span>
-
-                    <div class="text-end doted bgdivColor pt-2 px-3 col-5">
-                      <input type="text" id="" class="input_money" />
-                    </div>
-                    <div class="col-2 text-end">125</div>
-                  </div>
-                  <div
-                    class="
-                      d-flex
-                      align-items-center
-                      bgColor
-                      mt-3
-                      py-2
-                      px-3
-                      justify-content-between
-                    "
-                  >
-                    <span class="c">Total Service Retention </span>
-                    <div>$70</div>
-                  </div>
-                </div>
-              </mat-expansion-panel>
-              <div
-                class="
-                  d-flex
-                  align-items-center
-                  bgColor
-                  mt-3
-                  py-2
-                  px-3
-                  justify-content-between
-                "
-              >
-                <span class="c fs-5">Total Service </span>
-                <div>$70</div>
-              </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel class="mt-4">
-              <mat-expansion-panel-header class="rounded-pill border">
-                <mat-panel-title class="fs-5 c">
-                  Retention Enhancements
-                </mat-panel-title>
-                <mat-panel-description> </mat-panel-description>
-              </mat-expansion-panel-header>
-              <form [formGroup]="billingForm">
-                <div class="d-flex justify-content-between overcallBg mt-3">
-                  <div class="col-3">
-                    <div class="pt-3 ps-2">Products & services</div>
-                    <div class="doted py-2 ps-2 bgdivColor mt-3">
-                      Parts Widget
-                    </div>
-                    <div class="doted py-2 ps-2 bgdivColor mt-3">
-                      DMS Write-Back Integration
-                    </div>
-                  </div>
-
-                  <div class="col-3">
-                    <div class="text-end pe-3 pt-3"><span>off/On</span></div>
-
-                    <div class="text-end doted bgdivColor py-2 pe-2 mt-3">
-                      <mat-slide-toggle
-                        name="apollo"
-                        (change)="toggleDisBtn($event)"
-                      ></mat-slide-toggle>
-                    </div>
-                    <div class="text-end doted bgdivColor py-2 pe-2 mt-3">
-                      <mat-slide-toggle
-                        name="apolloText"
-                        (change)="toggleDisBtn($event)"
-                      ></mat-slide-toggle>
-                    </div>
-                  </div>
-
-                  <div class="col-3">
-                    <div class="text-end pe-3 pt-3">
-                      <span>Monthly Fee</span>
-                    </div>
-                    <div class="text-end doted bgdivColor py-2 pe-1 mt-3">
-                      <input
-                        type="text"
-                        id=""
-                        name="apollo"
-                        formControlName="apollo"
-                        (blur)="money($event)"
-                        class="input_money"
-                      />
-                    </div>
-                    <div class="text-end doted bgdivColor py-2 pe-1 mt-3">
-                      <input
-                        type="text"
-                        id=""
-                        name="apolloText"
-                        formControlName="apolloText"
-                        (blur)="money($event)"
-                        class="input_money"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-3">
-                    <div class="text-end pe-3 pt-3">
-                      <span>Line Amount</span>
-                    </div>
-                    <div
-                      *ngIf="apollo; else elseBlocks"
-                      class="text-end bgdivColor text-dark py-2 pe-1 mt-3"
-                    >
-                      $0.0
-                    </div>
-                    <ng-template #elseBlocks>
-                      <div class="text-end bgdivColor text-dark py-2 pe-1 mt-3">
-                        {{ data1 }}
-                      </div>
-                    </ng-template>
-                    <div
-                      *ngIf="apolloText; else elseBlocks1"
-                      class="text-end bgdivColor text-dark py-2 pe-1 mt-3"
-                    >
-                      $0.0
-                    </div>
-                    <ng-template #elseBlocks1>
-                      <div class="text-end bgdivColor text-dark py-2 pe-1 mt-3">
-                        {{ data2 }}
-                      </div>
-                    </ng-template>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between mt-2 py-3 px-1">
-                  <div class="c">Total Retention Enhancements</div>
-                  <div class="me-2 fs-5 c">{{ doller }}</div>
-                </div>
-              </form>
-            </mat-expansion-panel>
-            <mat-expansion-panel class="mt-4" expanded="true">
-              <mat-expansion-panel-header class="rounded-pill border">
+            <app-service></app-service>
+         <!-- retententcation  -->
+            <mat-expansion-panel class="mt-4 overcallBg" expanded="false">
+              <mat-expansion-panel-header class="rounded-pill bg-white border">
                 <mat-panel-title class="fs-5 c">
                   Precision Mail:Sales
                 </mat-panel-title>
                 <mat-panel-description> </mat-panel-description>
               </mat-expansion-panel-header>
-              <form [formGroup]="productsForm" >
-              <div class="overcallBg">
-                <div class="d-flex justify-content-between mt-3 py-2 px-2">
-                  <div class="col-4">Products & Services</div>
-                  <div class="text-end col-2">Quantity</div>
-                  <div class="col-2 text-end">Price Per Free</div>
-                  <div class="col-2 text-end">Monthly Budget</div>
-                  <div class="col-2 text-end">Line Amount</div>
-                </div>
+              <form [formGroup]="productsForm">
+                <div class="overcallBg">
+                  <div class="d-flex justify-content-between mt-3 py-2 px-2">
+                    <div class="col-4">Products & Services</div>
+                    <div class="text-end col-2">Quantity</div>
+                    <div class="col-2 text-end">Price Per Free</div>
+                    <div class="col-2 text-end">Monthly Budget</div>
+                    <div class="col-2 text-end">Line Amount</div>
+                  </div>
 
-                <div
-                  class="
-                    d-flex
-                    justify-content-between
-                    mt-3
-                    px-2
-                    bgdivColor
-                    py-2
-                  "
-                >
-                  <div class="t col-4 doted">in-Market(Active Customers)</div>
-                  <div class="col-2 doted text-end">
-                    <input
-                      type="text"
-                      id="activeQuantity"
-                      dir="rtl"
-                      (blur)="addDoller($event,'','')"
-                      formControlName='quantity'
-                      class="input_money me-1"
-                      data-name="Active"
-                    />
+                  <div *ngFor="let item of saiobj">
+                    <div
+                      formGroupName="{{ item.fGroupName }}"
+                      class="
+                        d-flex
+                        justify-content-between
+                        mt-3
+                        px-2
+                        bgdivColor
+                        py-2
+                      "
+                    >
+                      <div class="t col-4 doted">{{ item.title }}</div>
+                      <div class="col-2 doted text-end">
+                        <input
+                          type="text"
+                          id="{{ item.formFId }}"
+                          (blur)="
+                            addDoller(
+                              $event,
+                              item.fControlName,
+                              item.fGroupName
+                            )
+                          "
+                          formControlName="quantity"
+                          class="input_money me-1"
+                          data-name="Lost"
+                          dir="rtl"
+                        />
+                      </div>
+                      <div class="col-2 doted text-end">
+                        <input
+                          type="text"
+                          id="{{ item.formLId }}"
+                          dir="rtl"
+                          name="pricePerFree"
+                          (blur)="
+                            addDoller(
+                              $event,
+                              item.fControlName,
+                              item.fGroupName
+                            )
+                          "
+                          formControlName="pricePerFree"
+                          class="input_money me-1"
+                          data-name="Lost"
+                        />
+                      </div>
+                      <div class="col-2 doted text-end">
+                        <input
+                          type="text"
+                          id=""
+                          formControlName="{{ item.fControlName }}"
+                          dir="rtl"
+                          class="input_money me-1"
+                        />
+                      </div>
+                      <div class="col-2 text-end">
+                        <input
+                          type="text"
+                          id=""
+                          formControlName="{{ item.fControlName }}"
+                          dir="rtl"
+                          class="input_moneys me-1"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-2 doted text-end">
-                    <input
-                      type="text"
-                      id="activePrice"
-                      name="pricePerFree"
-                      dir="rtl"
-                      (blur)="addDoller($event,'','')"
-                      formControlName='pricePerFree'
-                      class="input_money me-1"
-                      data-name="Active"
-                    />
-                  </div>
-                  <div class="col-2 doted text-end">
-                    <input
-                      type="text"
-                      id=""
-                      dir="rtl"
-                      formControlName='monthlyBudget'
-                      class="input_money me-1"
-                    />
-                  </div>
-                  <div class="col-2 text-end"> <input
-                    type="text"
-                    id=""
-                    dir="rtl"
-                    formControlName='monthlyBudget'
-                    class="input_moneys me-1"
-                  /></div>
-                </div>
-                <div *ngFor="let item of saiobj">
-                  <div 
-                  formGroupName="{{item.fGroupName}}"
-                  class="
-                    d-flex
-                    justify-content-between
-                    mt-3
-                    px-2
-                    bgdivColor
-                    py-2
-                  "
-                >
-                  <div class="t col-4 doted">{{item.title}}</div>
-                  <div class="col-2 doted text-end">
-                    <input
-                      type="text"
-                      id="{{item.formFId}}"
-                      (blur)="addDoller($event,item.fControlName,item.fGroupName)"
-                      formControlName='quantity'
-                      class="input_money me-1"
-                      data-name="Lost"
-                      dir="rtl"
-                    /> 
-                   
-                  </div>
-                  <div class="col-2 doted text-end">
-                    <input
-                      type="text"
-                      id="{{item.formLId}}"
-                      dir="rtl"
-                      name="pricePerFree"
-                      (blur)="addDoller($event,item.fControlName,item.fGroupName)"
-                      formControlName='pricePerFree'
-                      class="input_money me-1"
-                      data-name="Lost"
-                    />
-                  </div>
-                  <div class="col-2 doted text-end">
-                    <input
-                      type="text"
-                      id=""
-                      formControlName='{{item.fControlName}}'
-                      dir="rtl"
-                      class="input_money me-1"
-                    />
-                  </div>
-                  <div class="col-2 text-end"> <input
-                    type="text"
-                    id=""
-                    formControlName='{{item.fControlName}}'
-                    dir="rtl"
-                    class="input_moneys me-1"
-                  /></div>
-                </div>
-                </div>
-               
-                <div class=" mt-3 px-2
-                d-flex
-                justify-content-between
-                bgdivColor
-                py-2 ">
 
-              <span class="c" >Total Precision Mail:Sales</span>
-              <span class="c">{{TotalPrecisionMail}}</span>
-              </div>
-
-              </div>
+                  <div
+                    class="
+                      mt-3
+                      px-2
+                      d-flex
+                      justify-content-between
+                      bgdivColor
+                      py-2
+                    "
+                  >
+                    <span class="c">Total Precision Mail:Sales</span>
+                    <span class="c">{{ TotalPrecisionMail|currency:'USD' }}</span>
+                  </div>
+                </div>
               </form>
             </mat-expansion-panel>
-            <mat-expansion-panel class="mt-4">
-              <mat-expansion-panel-header class="rounded-pill border">
-                <mat-panel-title class="">
+            <mat-expansion-panel class="mt-4 overcallBg">
+              <mat-expansion-panel-header class="rounded-pill bg-white border">
+                <mat-panel-title class="c fs-5">
                   Precision Mail:Service
                 </mat-panel-title>
                 <mat-panel-description> </mat-panel-description>
               </mat-expansion-panel-header>
+              <form [formGroup]="servicesForm">
+                <div class="overcallBg">
+                  <div class="d-flex justify-content-between mt-3 py-2 px-2">
+                    <div class="col-4">Products & Services</div>
+                    <div class="text-end col-2">Quantity</div>
+                    <div class="col-2 text-end">Price Per Free</div>
+                    <div class="col-2 text-end">Monthly Budget</div>
+                    <div class="col-2 text-end">Line Amount</div>
+                  </div>
+
+                  <div *ngFor="let item of saiObj1">
+                    <div
+                      formGroupName="{{ item.fGroupName }}"
+                      class="
+                        d-flex
+                        justify-content-between
+                        mt-3
+                        px-2
+                        bgdivColor
+                        py-2
+                      "
+                    >
+                      <div class="t col-4 doted">{{ item.title }}</div>
+                      <div class="col-2 doted text-end">
+                        <input
+                          type="text"
+                          id="{{ item.formFId }}"
+                          (blur)="
+                            addDoller2(
+                              $event,
+                              item.fControlName,
+                              item.fGroupName
+                            )
+                          "
+                          formControlName="quantity"
+                          class="input_money me-1"
+                          data-name="customer"
+                          dir="rtl"
+                        />
+                      </div>
+                      <div class="col-2 doted text-end">
+                        <input
+                          type="text"
+                          id="{{ item.formLId }}"
+                          dir="rtl"
+                          name="pricePerFree"
+                          (blur)="
+                            addDoller2(
+                              $event,
+                              item.fControlName,
+                              item.fGroupName
+                            )
+                          "
+                          formControlName="pricePerFree"
+                          class="input_money me-1"
+                          data-name="customer"
+                        />
+                      </div>
+                      <div class="col-2 doted text-end">
+                        <input
+                          type="text"
+                          id=""
+                          formControlName="{{ item.fControlName }}"
+                          dir="rtl"
+                          class="input_money me-1"
+                        />
+                      </div>
+                      <div class="col-2 text-end">
+                        <input
+                          type="text"
+                          id=""
+                          formControlName="{{ item.fControlName }}"
+                          dir="rtl"
+                          class="input_moneys me-1"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="
+                      mt-3
+                      px-2
+                      d-flex
+                      justify-content-between
+                      bgdivColor
+                      py-2
+                    "
+                  >
+                    <span class="c">Total Precision Mail:Servies</span>
+                    <span class="c">{{ TotalPrecisionMail1|currency:'USD' }}</span>
+                  </div>
+                </div>
+              </form>
             </mat-expansion-panel>
+              <div class="d-flex py-3 mt-5 bg-white px-4 justify-content-between"><span class="c fs-5">Total Retention</span><span class="c  fs-5">{{totalRention|currency:'USD'}}</span></div>
           </mat-expansion-panel>
+
+         
+
+          <app-ads></app-ads>
         </mat-accordion>
       </div>
     </div>
@@ -570,6 +365,6 @@
     class="sidenav_container"
     [ngClass]="isValid ? 'sideanav_container_small' : 'sidenav_container_big'"
   >
-    <app-child-side-nave></app-child-side-nave>
+    <app-child-side-nave [Retention]="totalRetentionChild"></app-child-side-nave>
   </div>
 </div>

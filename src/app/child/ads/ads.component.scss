@@ -1,0 +1,59 @@
+$accodianColor:#eee;
+$tavledivcolor:#f8f9fa;
+
+.input_money{
+    width: 7rem;
+    height: 25px;
+    border: 1px solid green;
+    
+}
+.side_scroll{
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.bgdivColor{
+    background-color: $tavledivcolor;
+    // height: 2.5rem;
+}
+.notallowed{
+    cursor: not-allowed;
+    
+}
+.allowed{
+    cursor: pointer;
+}
+.overcallBg{
+    background-color: #eee;
+}
+.c{
+    color: #0090b2;
+}
+.form-check-input{
+    width: 20px;
+    height: 20px;
+    box-shadow: none!important;
+}
+.mat-expansion-panel{
+    box-shadow: none !important;
+    // background-color: red;
+  
+}
+.doted{
+    border-right: 1px dotted gray!important;
+}
+::-webkit-scrollbar{
+    height:  10px;
+}
+::-webkit-scrollbar-track{
+    border-radius:5px ;
+    box-shadow: inset 0 0 10px rgba($color: #adadad, $alpha: 1.0);
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #212529;
+}
+.t{
+    font-size: 13px;
+}
