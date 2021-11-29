@@ -6,18 +6,16 @@
     <div>
       <div class="example-action-buttons"></div>
       <nav class="navbar navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
-        <div class="container">
-          <button mat-button (click)="accordion.openAll()">Expand All</button>
-          <button mat-button (click)="accordion.closeAll()">
-            Collapse All
-          </button>
+        <div class="container c">
+          <button class="btn c" *ngIf="isToggle; else collapse" id="expand" (click)="toggleALL($event)" >expand all</button>
+           <ng-template #collapse><button class="btn c" id='collapse' (click)="toggleALL($event)">collapse all</button> </ng-template>
         </div>
       </nav>
       <div class="m-5">
         <mat-accordion class="example-headers-align overcallBg" multi>
-          <mat-expansion-panel class="overcallBg">
+          <mat-expansion-panel class="overcallBg" [expanded]="isExpand">
             <mat-expansion-panel-header class="rounded-pill bg-light border">
-              <mat-panel-title class="c"> Apollo Technology Platform </mat-panel-title>
+              <mat-panel-title class="c fs-5"> Apollo Technology Platform </mat-panel-title>
             </mat-expansion-panel-header>
             <form class="overcallBg" [formGroup]="billingForm">
               <div class="d-flex justify-content-between overcallBg bgColor mt-3">
@@ -129,7 +127,7 @@
               </div>
             </form>
           </mat-expansion-panel>
-          <mat-expansion-panel class="mt-4 overcallBg"  expanded="true">
+          <mat-expansion-panel class="mt-4 overcallBg"  [expanded]="isExpand">
             <mat-expansion-panel-header class="rounded-pill bg-white border">
               <mat-panel-title class="fs-5 c"> Retention </mat-panel-title>
               <mat-panel-description> </mat-panel-description>
@@ -139,7 +137,7 @@
 
             <app-service></app-service>
          <!-- retententcation  -->
-            <mat-expansion-panel class="mt-4 overcallBg" expanded="false">
+            <mat-expansion-panel class="mt-4 overcallBg" [expanded]="isExpand">
               <mat-expansion-panel-header class="rounded-pill bg-white border">
                 <mat-panel-title class="fs-5 c">
                   Precision Mail:Sales
@@ -241,7 +239,7 @@
                 </div>
               </form>
             </mat-expansion-panel>
-            <mat-expansion-panel class="mt-4 overcallBg">
+            <mat-expansion-panel class="mt-4 overcallBg" [expanded]="isExpand">
               <mat-expansion-panel-header class="rounded-pill bg-white border">
                 <mat-panel-title class="c fs-5">
                   Precision Mail:Service
@@ -348,7 +346,9 @@
 
          
 
-          <app-ads></app-ads>
+          <app-ads [isexpand]='isExpand' ></app-ads>
+          <app-digital-seo [isexpand1]='isExpand'></app-digital-seo>
+          <app-social-media [isexpand]='isExpand'></app-social-media>
         </mat-accordion>
       </div>
     </div>

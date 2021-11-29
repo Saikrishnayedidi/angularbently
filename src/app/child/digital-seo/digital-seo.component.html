@@ -1,0 +1,142 @@
+<form [formGroup]="digitalForm">
+<mat-expansion-panel class="mt-4 overcallBg "  [expanded]="isexpand1">
+    <mat-expansion-panel-header class="rounded-pill bg-white border">
+        <mat-panel-title class="fs-5 c"> Digital SEO </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="d-flex justify-content-between bgdivColor py-2 px-1 mt-3">
+        <span class="col-6">products&service</span>
+        <span class="col-3 text-end">Monthly Free</span>
+        <span class="col-3 text-end">Line Amount</span>
+      </div>
+
+      <mat-expansion-panel
+      class="mt-5 overcallBg"
+      hideToggle="true"
+     >
+      <mat-expansion-panel-header
+      class="border bg-white"
+
+      #panelH
+      (click)="panelH._toggle()"
+    >
+      <mat-panel-title class="d-flex justify-content-between">
+        <div class="d-flex col-12" >
+          <div class="form-check d-flex align-items-center">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="defaultCheck1"
+              name="n1"
+              #check1
+              (change)="digitalCheck($event)"
+             
+              
+             
+            />
+            <label
+              class="form-check-label mt-1"
+              for="defaultCheck1"
+            >
+             SEO Plus
+            </label>
+            <i
+              class="fas fa-angle-right fs-4 ms-4"
+              (click)="panelH._toggle()"
+            ></i>
+          </div>
+        </div>
+      </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+      <div class="" formGroupName="seoPlus" >
+        <div class="col-3 text-end mt-2">
+          <input
+            type="text"
+            data-name="sub"
+            id="parent"
+            dir="rtl"
+            
+            name="monthlyFee"
+            formControlName="monthlyFee"
+            (blur)="digitalFun($event,'seoPlus','monthlyFee','lineAmount1')"
+            
+            class="input_money me-1"
+          />
+        </div>
+      </div>
+      <div class="col-3 text-end mt-2">
+        <span>{{display.lineAmount1|currency:'USD'}}</span>
+      </div>
+    </mat-expansion-panel-header>
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel
+      class="mt-5 overcallBg"
+      hideToggle="true"
+      >
+      <mat-expansion-panel-header
+      class="border bg-white"
+
+      #panelH1
+      (click)="panelH1._toggle()"
+    >
+      <mat-panel-title class="d-flex justify-content-between">
+        <div class="d-flex col-12">
+          <div class="form-check d-flex align-items-center">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="defaultCheck2"
+              name="n1"
+              #check2
+              (change)="digitalCheck($event)"
+             
+              
+             
+            />
+            <label
+              class="form-check-label mt-1"
+              for="defaultCheck2"
+            >
+             SEO Pro
+            </label>
+            <i
+              class="fas fa-angle-right fs-4 ms-4"
+              (click)="panelH1._toggle()"
+            ></i>
+          </div>
+        </div>
+      </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+      <div class=""  formGroupName="seoPro" >
+        <div class="col-3 text-end mt-2">
+          <input
+            type="text"
+            data-name="sub"
+            id="parent"
+            dir="rtl"
+            
+            name="monthlyFee"
+            formControlName="monthlyFee"
+            (blur)="digitalFun($event,'seoPro','monthlyFee','lineAmount2')"
+            class="input_money me-1"
+          />
+        </div>
+      </div>
+      <div class="col-3 text-end mt-2">
+        <span>{{display.lineAmount2|currency:'USD'}}</span>
+      </div>
+    </mat-expansion-panel-header>
+
+      </mat-expansion-panel>
+
+      <div class="d-flex py-2 px-2 c justify-content-between bg-white mt-3">
+          <span class="fs-5 c">Total Digital SEO</span>
+          <span class="fs-5 c">{{totalDigital|currency:'USD'}}</span>
+
+      </div>
+</mat-expansion-panel>
+</form>

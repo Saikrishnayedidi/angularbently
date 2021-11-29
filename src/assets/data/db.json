@@ -281,5 +281,43 @@
     {
       "id": 28
     }
+  ],
+  "model": [
+    {
+      "team": "Eco",
+      "region": "",
+      "customer": "",
+      "vpCustomer": "",
+      "territory": "",
+      "vpTerritory": "",
+      "regionalSales": "",
+      "vpSales": "",
+      "customerSuccess": "",
+      "id": 1
+    },
+    {
+      "team": "Alpha",
+      "region": "",
+      "customer": "",
+      "vpCustomer": "",
+      "territory": "",
+      "vpTerritory": "",
+      "regionalSales": "",
+      "vpSales": "",
+      "customerSuccess": "",
+      "id": 2
+    },
+    {
+      "team": "Alpha",
+      "region": "central",
+      "customer": "krishna",
+      "vpCustomer": "saikrishna",
+      "territory": "krishna",
+      "vpTerritory": "Bobby",
+      "regionalSales": "krishna",
+      "vpSales": "sai",
+      "customerSuccess": "Amanda Mire",
+      "id": 3
+    }
   ]
 }

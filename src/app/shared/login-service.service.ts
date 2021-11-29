@@ -48,6 +48,13 @@ postGeo(post:any){
   return this.api.post<any>("http://localhost:3000/geo",post)
 }
 
+postModel(post:any){
+  return this.api.post<any>("http://localhost:3000/model",post)
+}
+getModel(){
+  return this.api.get<any>('http://localhost:3000/model')
+}
+
 }
 
 

@@ -5,6 +5,7 @@ import {
   DoCheck,
   ViewChild,
   ElementRef,
+  Input,
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
@@ -157,7 +158,7 @@ export class AdsComponent implements OnInit, DoCheck {
     let x = n / 100;
     this.display[PercentageFeeNum] = x * this.display[monthlyBudgetNum];
     let p = x * this.display[monthlyBudgetNum];
-    this.display[lineAmountNum] = (s || p) + s1 + (s2 || 0);
+    this.display[lineAmountNum] = (s || p) + (s1||0) + (s2 || 0);
 
     // this.totalBaseAdvertisingPackage=(this.display.lineAmountNum||0)+(this.display.lineAmountNum1||0)(this.display.lineAmountNum2||0)+(this.display.lineAmountNum3||0)(this.display.lineAmountCustom||0)
     //  console.log(this.totalBaseAdvertisingPackage)
@@ -206,6 +207,7 @@ export class AdsComponent implements OnInit, DoCheck {
       (this.display.pluslineAmountNum || 0) +
       (this.display.pluslineAmountNum2 || 0) +
       (this.display.pluslineAmountCustom || 0);
+      
       this._toggle.adsdata.subscribe((res:any)=>{
         this.totalAds=res
       })
@@ -225,6 +227,9 @@ export class AdsComponent implements OnInit, DoCheck {
   @ViewChild('checkBox1') check1!: ElementRef;
   isExpand1!: boolean;
   isExpand2!: boolean;
+
+  @Input('isexpand') isexpand!:boolean
+
   checkbox(e: any) {
     if ('defaultCheck2' == e.target.id) {
       if (e.target.checked) {

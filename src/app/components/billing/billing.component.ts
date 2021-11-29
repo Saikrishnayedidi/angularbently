@@ -126,10 +126,25 @@ export class BillingComponent
   sai: any;
   totalRetentionChild!:number
   serviceTotal!:number
-
+  isToggle=true
+  isExpand!:boolean
   totalRention!:any
+  toggleALL(e:any){
+  debugger
+ if('expand'==e.target.id)
+ {
+  this.isExpand=true
+ }
+
+ if('collapse'==e.target.id)
+ {
+   this.isExpand=false
+ }
+   this.isToggle=!this.isToggle
+ 
+  }
   ngDoCheck() {
-//     this._toggleServ.getParetData(this.total);
+  this._toggleServ.getParetData(this.total);
 //     // console.log((this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0)) 
 //      this.totalRetentionChild=(this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0)
 // this.serviceTotal=( this.RententionTotal||0)+(this.RententionTotal2||0)
@@ -145,6 +160,7 @@ export class BillingComponent
   }
 
   money(e: Event) {
+    debugger
     let data = (e.target as HTMLInputElement).value;
     let controlName = (e.target as HTMLInputElement).name;
 
@@ -158,10 +174,10 @@ export class BillingComponent
     });
     data = data.split(',').join('');
 
-    // templateDynamic
-    this.datas[0].input = this.billingForm.value.apollo;
-    this.datas[1].input = this.billingForm.value.apolloText;
-    this.datas[2].input = this.billingForm.value.apolloTransact;
+    // // templateDynamic
+    // this.datas[0].input = this.billingForm.value.apollo;
+    // this.datas[1].input = this.billingForm.value.apolloText;
+    // this.datas[2].input = this.billingForm.value.apolloTransact;
     //tend
     // withoutngfor
 
@@ -179,22 +195,22 @@ export class BillingComponent
     //   let str=curr.input.toString()
     //  let num= str.substr(1,)
     // templateDYnamic
-    if ('apollo' == (e.target as HTMLInputElement).name) {
-      let string: string = this.datas[0].input.toString();
-      let num = string.substring(1, string.length);
-      this.number1 = parseInt(num);
-    }
+    // if ('apollo' == (e.target as HTMLInputElement).name) {
+    //   let string: string = this.datas[0].input.toString();
+    //   let num = string.substring(1, string.length);
+    //   this.number1 = parseInt(num);
+    // }
 
-    if ('apolloText' == (e.target as HTMLInputElement).name) {
-      let string: string = this.datas[1].input.toString();
-      let num = string.substring(1, string.length);
-      this.number2 = parseInt(num);
-    }
-    if ('apolloTransact' == (e.target as HTMLInputElement).name) {
-      let string: string = this.datas[2].input.toString();
-      let num = string.substring(1, string.length);
-      this.number3 = parseInt(num);
-    }
+    // if ('apolloText' == (e.target as HTMLInputElement).name) {
+    //   let string: string = this.datas[1].input.toString();
+    //   let num = string.substring(1, string.length);
+    //   this.number2 = parseInt(num);
+    // }
+    // if ('apolloTransact' == (e.target as HTMLInputElement).name) {
+    //   let string: string = this.datas[2].input.toString();
+    //   let num = string.substring(1, string.length);
+    //   this.number3 = parseInt(num);
+    // }
     //  tendthi[]thi[]
 
     // withoutngfor
@@ -231,6 +247,7 @@ export class BillingComponent
   //  }
 
   toggleDisBtn(e: any) {
+    debugger
     if (e.checked) {
       // this.disabled['is' + type + 'error']
 

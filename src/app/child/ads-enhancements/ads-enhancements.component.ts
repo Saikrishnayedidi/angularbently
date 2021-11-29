@@ -179,6 +179,7 @@ this.quantity=e.target.value
   TotalAdsEnhancements!:number
 ngDoCheck(){
   this.TotalAdsEnhancements=(this.display.aLineAmount||0)+(this.display.aLineAmount1||0)+(this.display.aLineAmount2||0)+(this.display.aLineAmount3||0)+(this.display.aLineAmount4||0)+(this.display.aLineAmount5||0)
+  
  this._toggle.getAdsData(this.TotalAdsEnhancements)
  
 

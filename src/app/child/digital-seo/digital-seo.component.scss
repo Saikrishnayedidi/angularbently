@@ -3,9 +3,6 @@ $tavledivcolor:#f8f9fa;
 .t{
     font-size: 13px;
 }
-.doteds{
-    border-right: 2px dotted gray!important;
-}
 .doted{
     border-right: 1px dotted gray!important;
 }
@@ -35,18 +32,4 @@ $tavledivcolor:#f8f9fa;
     height: 25px;
     border: 1px solid green;
     
-}
-.overflow{
-    overflow: auto;
-}
-::-webkit-scrollbar{
-    height:  10px;
-}
-::-webkit-scrollbar-track{
-    border-radius:5px ;
-    box-shadow: inset 0 0 10px rgba($color: #adadad, $alpha: 1.0);
-}
-::-webkit-scrollbar-thumb{
-    border-radius: 5px;
-    background-color: #212529;
 }

@@ -33,6 +33,8 @@ import { AdsComponent } from './child/ads/ads.component';
 import { VideoComponent } from './child/video/video.component';
 import { AdsEnhancementsComponent } from './child/ads-enhancements/ads-enhancements.component';
 import { ServiceComponent } from './child/service/service.component';
+import { DigitalSeoComponent } from './child/digital-seo/digital-seo.component';
+import { SocialMediaComponent } from './child/social-media/social-media.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ServiceComponent } from './child/service/service.component';
     AdsComponent,
     VideoComponent,
     AdsEnhancementsComponent,
-    ServiceComponent
+    ServiceComponent,
+    DigitalSeoComponent,
+    SocialMediaComponent
   ],
   imports: [
     BrowserModule,

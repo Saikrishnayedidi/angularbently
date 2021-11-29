@@ -13,6 +13,10 @@ private _video=new BehaviorSubject<number>(0)
 private _parentAdsdata=new BehaviorSubject<number>(0)
 private _serviceData=new BehaviorSubject<number>(0)
 private _retention=new BehaviorSubject<number>(0)
+private _degital=new BehaviorSubject<number>(0)
+private _social=new BehaviorSubject<number>(0)
+social=this._social.asObservable()
+degital=this._degital.asObservable()
 retention=this._retention.asObservable()
 serviceData=this._serviceData.asObservable()
 parentDara=this._parentData.asObservable()
@@ -48,5 +52,12 @@ this._serviceData.next(input)
 
   getRetencation(input:number){
     this._retention.next(input)
+  }
+  getDigital(input:number){
+    this._degital.next(input)
+  }
+
+  getSocial(input:number){
+    this._social.next(input)
   }
 }
