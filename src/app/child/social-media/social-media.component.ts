@@ -1,13 +1,20 @@
 
 import { Component, DoCheck, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControlName, FormGroup, FormGroupName } from '@angular/forms';
+import { canComponentLeave } from 'src/app/guards/unsaved-changes.guard';
 import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
 @Component({
   selector: 'app-social-media',
   templateUrl: './social-media.component.html',
   styleUrls: ['./social-media.component.scss']
 })
-export class SocialMediaComponent implements OnInit {
+export class SocialMediaComponent implements OnInit,canComponentLeave {
+  canLeave(){
+    if(this.socialForm.dirty){
+      confirm("bye")
+    }
+    return true
+  }
 
   @Input('isexpand') isexpand!:boolean
   constructor(public fb:FormBuilder,public _toggle:ToggleServiceService) { }

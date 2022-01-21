@@ -2,12 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginServiceService } from 'src/app/shared/login-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { canComponentLeave } from 'src/app/guards/unsaved-changes.guard';
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit,canComponentLeave {
+
+  canLeave(){
+    if(this.contactForm.dirty)
+    {
+   confirm('r u want to leave the page')
+    }
+    return true
+  }
   error: { [k: string]: any } = {};
 
   phoneNum = '1234567888';

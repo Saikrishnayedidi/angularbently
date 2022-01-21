@@ -7,18 +7,33 @@
       <div class="example-action-buttons"></div>
       <nav class="navbar navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
         <div class="container c">
-          <button class="btn c" *ngIf="isToggle; else collapse" id="expand" (click)="toggleALL($event)" >expand all</button>
-           <ng-template #collapse><button class="btn c" id='collapse' (click)="toggleALL($event)">collapse all</button> </ng-template>
+          <button
+            class="btn c"
+            *ngIf="isToggle; else collapse"
+            id="expand"
+            (click)="toggleALL($event)"
+          >
+            expand all
+          </button>
+          <ng-template #collapse
+            ><button class="btn c" id="collapse" (click)="toggleALL($event)">
+              collapse all
+            </button>
+          </ng-template>
         </div>
       </nav>
       <div class="m-5">
         <mat-accordion class="example-headers-align overcallBg" multi>
           <mat-expansion-panel class="overcallBg" [expanded]="isExpand">
             <mat-expansion-panel-header class="rounded-pill bg-light border">
-              <mat-panel-title class="c fs-5"> Apollo Technology Platform </mat-panel-title>
+              <mat-panel-title class="c fs-5">
+                Apollo Technology Platform
+              </mat-panel-title>
             </mat-expansion-panel-header>
             <form class="overcallBg" [formGroup]="billingForm">
-              <div class="d-flex justify-content-between overcallBg bgColor mt-3">
+              <div
+                class="d-flex justify-content-between overcallBg bgColor mt-3"
+              >
                 <div class="col-3 overcallBg">
                   <div class="pt-3 ps-2">Products & services</div>
                   <div class="doted py-2 ps-2 bgdivColor mt-3">Apollo</div>
@@ -127,16 +142,14 @@
               </div>
             </form>
           </mat-expansion-panel>
-          <mat-expansion-panel class="mt-4 overcallBg"  [expanded]="isExpand">
+          <mat-expansion-panel class="mt-4 overcallBg" [expanded]="isExpand">
             <mat-expansion-panel-header class="rounded-pill bg-white border">
               <mat-panel-title class="fs-5 c"> Retention </mat-panel-title>
               <mat-panel-description> </mat-panel-description>
             </mat-expansion-panel-header>
-           
-
 
             <app-service></app-service>
-         <!-- retententcation  -->
+            <!-- retententcation  -->
             <mat-expansion-panel class="mt-4 overcallBg" [expanded]="isExpand">
               <mat-expansion-panel-header class="rounded-pill bg-white border">
                 <mat-panel-title class="fs-5 c">
@@ -157,14 +170,7 @@
                   <div *ngFor="let item of saiobj">
                     <div
                       formGroupName="{{ item.fGroupName }}"
-                      class="
-                        d-flex
-                        justify-content-between
-                        mt-3
-                        px-2
-                        bgdivColor
-                        py-2
-                      "
+                      class="d-flex justify-content-between mt-3 px-2 bgdivColor py-2"
                     >
                       <div class="t col-4 doted">{{ item.title }}</div>
                       <div class="col-2 doted text-end">
@@ -224,17 +230,12 @@
                   </div>
 
                   <div
-                    class="
-                      mt-3
-                      px-2
-                      d-flex
-                      justify-content-between
-                      bgdivColor
-                      py-2
-                    "
+                    class="mt-3 px-2 d-flex justify-content-between bgdivColor py-2"
                   >
                     <span class="c">Total Precision Mail:Sales</span>
-                    <span class="c">{{ TotalPrecisionMail|currency:'USD' }}</span>
+                    <span class="c">{{
+                      TotalPrecisionMail | currency: "USD"
+                    }}</span>
                   </div>
                 </div>
               </form>
@@ -259,14 +260,7 @@
                   <div *ngFor="let item of saiObj1">
                     <div
                       formGroupName="{{ item.fGroupName }}"
-                      class="
-                        d-flex
-                        justify-content-between
-                        mt-3
-                        px-2
-                        bgdivColor
-                        py-2
-                      "
+                      class="d-flex justify-content-between mt-3 px-2 bgdivColor py-2"
                     >
                       <div class="t col-4 doted">{{ item.title }}</div>
                       <div class="col-2 doted text-end">
@@ -326,29 +320,25 @@
                   </div>
 
                   <div
-                    class="
-                      mt-3
-                      px-2
-                      d-flex
-                      justify-content-between
-                      bgdivColor
-                      py-2
-                    "
+                    class="mt-3 px-2 d-flex justify-content-between bgdivColor py-2"
                   >
                     <span class="c">Total Precision Mail:Servies</span>
-                    <span class="c">{{ TotalPrecisionMail1|currency:'USD' }}</span>
+                    <span class="c">{{
+                      TotalPrecisionMail1 | currency: "USD"
+                    }}</span>
                   </div>
                 </div>
               </form>
             </mat-expansion-panel>
-              <div class="d-flex py-3 mt-5 bg-white px-4 justify-content-between"><span class="c fs-5">Total Retention</span><span class="c  fs-5">{{totalRention|currency:'USD'}}</span></div>
+            <div class="d-flex py-3 mt-5 bg-white px-4 justify-content-between">
+              <span class="c fs-5">Total Retention</span
+              ><span class="c fs-5">{{ totalRention | currency: "USD" }}</span>
+            </div>
           </mat-expansion-panel>
 
-         
-
-          <app-ads [isexpand]='isExpand' ></app-ads>
-          <app-digital-seo [isexpand1]='isExpand'></app-digital-seo>
-          <app-social-media [isexpand]='isExpand'></app-social-media>
+          <app-ads [isexpand]="isExpand"></app-ads>
+          <app-digital-seo [isexpand1]="isExpand"></app-digital-seo>
+          <app-social-media [isexpand]="isExpand"></app-social-media>
         </mat-accordion>
       </div>
     </div>
@@ -365,6 +355,8 @@
     class="sidenav_container"
     [ngClass]="isValid ? 'sideanav_container_small' : 'sidenav_container_big'"
   >
-    <app-child-side-nave [Retention]="totalRetentionChild"></app-child-side-nave>
+    <app-child-side-nave
+      [Retention]="totalRetentionChild"
+    ></app-child-side-nave>
   </div>
 </div>

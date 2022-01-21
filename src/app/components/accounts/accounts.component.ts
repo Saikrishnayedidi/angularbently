@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { disableDebugTools } from '@angular/platform-browser';
+import { canComponentLeave } from 'src/app/guards/unsaved-changes.guard';
 import { LoginServiceService } from 'src/app/shared/login-service.service';
 
 @Component({
@@ -9,7 +10,14 @@ import { LoginServiceService } from 'src/app/shared/login-service.service';
   templateUrl: './accounts.component.html',
   styleUrls: ['./accounts.component.scss'],
 })
-export class AccountsComponent implements OnInit {
+export class AccountsComponent implements OnInit,canComponentLeave {
+  canLeave(){
+    if(this.accountForm.dirty)
+    {
+     confirm('are u want to leave ')
+    }
+    return true
+  }
   select = 'select';
   conform = [
     {

@@ -1,5 +1,6 @@
 import { Component, DoCheck, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { canComponentLeave } from 'src/app/guards/unsaved-changes.guard';
 import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
 
 @Component({
@@ -7,12 +8,18 @@ import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.scss']
 })
-export class ServiceComponent implements OnInit,DoCheck {
+export class ServiceComponent implements OnInit,DoCheck,canComponentLeave {
 
   constructor(public fb:FormBuilder,public _toggle:ToggleServiceService) { }
 
   ngOnInit(): void {
     
+  }
+  canLeave(){
+    if(this.serviceForm.dirty){
+      return window.confirm("you have some unsaved data")
+    }
+    return true
   }
   serviceForm=this.fb.group({
     seriveCustom:this.fb.group({

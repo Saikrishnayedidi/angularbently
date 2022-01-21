@@ -23,27 +23,33 @@ modelForm!:FormGroup
   ngOnInit(): void {
     this._toggleServ.toggleMessage.subscribe((res)=>{
       this.isValid=!res
+      this.totalsum()
     })
 
     this._toggleServ.parentDara.subscribe((res)=>{
      
       this.data=res
+      this.totalsum()
     })
 
     this._toggleServ.adsParentData.subscribe((res)=>{
      
       this.ads= res
+      this.totalsum()
     
     })
 
     this._toggleServ.retention.subscribe((res)=>{
       this.retenction=res
+      this.totalsum()
     })
     this._toggleServ.degital.subscribe((res)=>{
       this.totalDegital=res
+      this.totalsum()
     })
     this._toggleServ.social.subscribe((res)=>{
 this.totalSocial=res
+this.totalsum()
     })
 
     this.modelForm=this.fb.group({
@@ -90,8 +96,11 @@ this.totalSocial=res
     
    
   }
-  ngDoCheck(){
+  totalsum(){
     this.totalBudget=(this.data||0)+(this.ads||0)+(this.retenction||0)+(this.totalDegital||0)+(this.totalSocial||0)
+  }
+  ngDoCheck(){
+   
   }
 
   choose=[

@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanDeactivate,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import { AccountsComponent } from '../components/accounts/accounts.component';
-
+export interface canComponentLeave {
+  canLeave: () => boolean;
+}
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class UnsavedChangesGuard implements CanDeactivate<AccountsComponent> {
-  canDeactivate(component: AccountsComponent): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   if(component.accountForm.dirty){
-     return window.confirm('you have some unchanged chances')
-   }
-    return true;
+export class UnsavedChangesGuard implements CanDeactivate<canComponentLeave> {
+  canDeactivate(component: canComponentLeave) {
+    if (component.canLeave) {
+      return component.canLeave();
+    }
+    return false;
   }
-  
 }

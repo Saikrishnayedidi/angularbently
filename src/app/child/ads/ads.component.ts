@@ -8,6 +8,7 @@ import {
   Input,
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable, observable, Subject } from 'rxjs';
 import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
 
 @Component({
@@ -23,6 +24,41 @@ export class AdsComponent implements OnInit, DoCheck {
   totalVideos!:any
   totalAd!:any
   ngOnInit(): void {
+    this._toggle.adsdata.subscribe((res:any)=>{
+      this.totalAds=res
+      this.totalSum()
+    })
+
+    this._toggle.videoData.subscribe((res:any)=>{
+      
+      this.totalVideos=res
+      this.totalSum()
+    })
+
+   let obj=new Observable(a=>{
+       a.next(Math.random())
+   })
+   let subject=new Subject()
+
+
+ 
+
+   subject.subscribe((res)=>{
+     console.log(res)
+   })
+
+   subject.subscribe((res)=>{
+     console.log(res)
+   })
+   subject.next(Math.random())
+
+  //  obj.subscribe((res)=>{
+  //    console.log(res)
+  //  })
+  //  obj.subscribe((res)=>{
+  //    console.log(res)
+  //  })
+
     this.baseAdvertisingPackage = this.fb.group({
       searchNew: this.fb.group({
         percentage: ['25%'],
@@ -86,6 +122,29 @@ export class AdsComponent implements OnInit, DoCheck {
   data!: string;
   baseAdvertisingPackage!: FormGroup;
   display: { [x: string]: any } = {};
+
+
+
+totalSum(){
+  this.totalBaseAdvertisingPackage =
+  (this.display.lineAmountNum0 || 0) +
+  (this.display.lineAmountNum1 || 0) +
+  (this.display.lineAmountNum || 0) +
+  (this.display.lineAmountNum2 || 0) +
+  (this.display.lineAmountCustom || 0);
+
+this.totalPlusAdvertisingPackage =
+  (this.display.pluslineAmountNum0 || 0) +
+  (this.display.pluslineAmountNum1 || 0) +
+  (this.display.pluslineAmountNum || 0) +
+  (this.display.pluslineAmountNum2 || 0) +
+  (this.display.pluslineAmountCustom || 0);
+
+
+
+  this.totalAd=(this.totalAds||0)+(this.totalVideos||0)+(this.totalBaseAdvertisingPackage||0)+(this.totalPlusAdvertisingPackage||0)
+  this._toggle.getParentAdsData(this.totalAd)
+}
 
   percentage(
     e: any,
@@ -194,30 +253,7 @@ export class AdsComponent implements OnInit, DoCheck {
   }
   totalPlusAdvertisingPackage!: number;
   ngDoCheck() {
-    this.totalBaseAdvertisingPackage =
-      (this.display.lineAmountNum0 || 0) +
-      (this.display.lineAmountNum1 || 0) +
-      (this.display.lineAmountNum || 0) +
-      (this.display.lineAmountNum2 || 0) +
-      (this.display.lineAmountCustom || 0);
-
-    this.totalPlusAdvertisingPackage =
-      (this.display.pluslineAmountNum0 || 0) +
-      (this.display.pluslineAmountNum1 || 0) +
-      (this.display.pluslineAmountNum || 0) +
-      (this.display.pluslineAmountNum2 || 0) +
-      (this.display.pluslineAmountCustom || 0);
-      
-      this._toggle.adsdata.subscribe((res:any)=>{
-        this.totalAds=res
-      })
-  
-      this._toggle.videoData.subscribe((res:any)=>{
-        this.totalVideos=res
-      })
-
-      this.totalAd=(this.totalAds||0)+(this.totalVideos||0)+(this.totalBaseAdvertisingPackage||0)+(this.totalPlusAdvertisingPackage||0)
-      this._toggle.getParentAdsData(this.totalAd)
+   
   }
   isNotAllowed = true;
   @ViewChild('line') line!: ElementRef;
@@ -320,5 +356,7 @@ export class AdsComponent implements OnInit, DoCheck {
 
     
   }
+
+  
  
 }

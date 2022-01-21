@@ -32,21 +32,21 @@ const routes: Routes = [
         path: 'nav',
         component: NaviconsHomeComponent,
        
-      },{ path:'billing',component:BillingComponent},
+      },{ path:'billing',component:BillingComponent,canDeactivate:[UnsavedChangesGuard]},
       
       {
         path: 'sidenav',
         component: SidenavbarComponent,
         children: [
           { path: 'inventor', component: InventoryComponent },
-          { path: 'accounts', component: AccountsComponent },
-          { path: 'contacts', component: ContactsComponent },
+          { path: 'accounts', component: AccountsComponent,canDeactivate:[UnsavedChangesGuard] },
+          { path: 'contacts', component: ContactsComponent,canDeactivate:[UnsavedChangesGuard] },
           { path: 'budget', component: BudgetComponent },
           {path:'access',component:AccessComponent},
           {path:'expectations',component:ExpectationsComponent},
           {path:'geo',component:GeoComponent},
           {path:'measurement',component:MeasurementComponent},
-          {path:'advertising',component:AdvertisingComponent}
+          {path:'advertising',component:AdvertisingComponent,}
           
         ],
       },

@@ -11,6 +11,7 @@ import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
 import { MatAccordion } from '@angular/material/expansion';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
+import { canComponentLeave } from 'src/app/guards/unsaved-changes.guard';
 
 @Component({
   selector: 'app-billing',
@@ -18,10 +19,16 @@ import { CurrencyPipe } from '@angular/common';
   styleUrls: ['./billing.component.scss'],
 })
 export class BillingComponent
-  implements OnInit, OnChanges, DoCheck, AfterViewInit
+  implements OnInit, OnChanges, DoCheck, AfterViewInit, canComponentLeave
 {
+  canLeave() {
+    if (this.billingForm.dirty) {
+      confirm('hello');
+    }
+    return true;
+  }
   @ViewChild(MatAccordion)
-  isAllowed=false
+  isAllowed = false;
   storeData!: string;
   disabled: { [x: string]: any } = {};
   apollo: boolean = true;
@@ -120,39 +127,39 @@ export class BillingComponent
     this.billingForm.get('apolloTransact')?.disable();
   }
   ngOnChanges() {
-  console.log('p',this.RententionTotal)
-  this._toggleServ.getParetData(this.total);
+    console.log('p', this.RententionTotal);
+    this._toggleServ.getParetData(this.total);
   }
   sai: any;
-  totalRetentionChild!:number
-  serviceTotal!:number
-  isToggle=true
-  isExpand!:boolean
-  totalRention!:any
-  toggleALL(e:any){
-  debugger
- if('expand'==e.target.id)
- {
-  this.isExpand=true
- }
+  totalRetentionChild!: number;
+  serviceTotal!: number;
+  isToggle = true;
+  isExpand!: boolean;
+  totalRention!: any;
+  toggleALL(e: any) {
+    debugger;
+    if ('expand' == e.target.id) {
+      this.isExpand = true;
+    }
 
- if('collapse'==e.target.id)
- {
-   this.isExpand=false
- }
-   this.isToggle=!this.isToggle
- 
+    if ('collapse' == e.target.id) {
+      this.isExpand = false;
+    }
+    this.isToggle = !this.isToggle;
   }
   ngDoCheck() {
-  this._toggleServ.getParetData(this.total);
-//     // console.log((this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0)) 
-//      this.totalRetentionChild=(this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0)
-// this.serviceTotal=( this.RententionTotal||0)+(this.RententionTotal2||0)
-   this._toggleServ.serviceData.subscribe((res)=>{
-      this.serviceTotal=res
-   })
-   this.totalRention=(this.serviceTotal||0)+(this.TotalPrecisionMail1||0)+(this.TotalPrecisionMail||0)
-   this._toggleServ.getRetencation(this.totalRention)
+    this._toggleServ.getParetData(this.total);
+    //     // console.log((this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0))
+    //      this.totalRetentionChild=(this.RententionTotalNum||0)+(this.totalPrecisionMail1Num||0)+(this.totalPrecisionMailNum||0)
+    // this.serviceTotal=( this.RententionTotal||0)+(this.RententionTotal2||0)
+    this._toggleServ.serviceData.subscribe((res) => {
+      this.serviceTotal = res;
+    });
+    this.totalRention =
+      (this.serviceTotal || 0) +
+      (this.TotalPrecisionMail1 || 0) +
+      (this.TotalPrecisionMail || 0);
+    this._toggleServ.getRetencation(this.totalRention);
   }
   toggle() {
     this.isValid = !this.isValid;
@@ -160,7 +167,7 @@ export class BillingComponent
   }
 
   money(e: Event) {
-    debugger
+    debugger;
     let data = (e.target as HTMLInputElement).value;
     let controlName = (e.target as HTMLInputElement).name;
 
@@ -247,7 +254,7 @@ export class BillingComponent
   //  }
 
   toggleDisBtn(e: any) {
-    debugger
+    debugger;
     if (e.checked) {
       // this.disabled['is' + type + 'error']
 
@@ -329,8 +336,6 @@ export class BillingComponent
   }
   product1!: number;
   product2!: number;
-
- 
 
   finaltotal!: number;
   total1!: number;
@@ -525,10 +530,11 @@ export class BillingComponent
     //  console.log('all',this.productsForm.value.activeCustomer.monthlyBudget+this.productsForm.value.lostCustomer.monthlyBudget1+this.productsForm.value.sameBrands.monthlyBudget2 + this.productsForm.value.tradeValue.monthlyBudget3+this.productsForm.value.allInDriveOff.monthlyBudget4)
     //  console.log('4',this.productsForm.value.allInDriveOff.monthlyBudget4)
     //  console.log("sum",(s0||0)+(s1||0)+(s2||0)+(s3||0)+(s4||0))
-    this.totalPrecisionMailNum=(n0 || 0) + (n1 || 0) + (n2 || 0) + (n3 || 0) + (n4 || 0);
+    this.totalPrecisionMailNum =
+      (n0 || 0) + (n1 || 0) + (n2 || 0) + (n3 || 0) + (n4 || 0);
     let sum = (n0 || 0) + (n1 || 0) + (n2 || 0) + (n3 || 0) + (n4 || 0);
 
-    this.TotalPrecisionMail =  sum;
+    this.TotalPrecisionMail = sum;
   }
 
   saiObj1 = [
@@ -611,39 +617,32 @@ export class BillingComponent
     // // let n4=parseFloat(s4)
     // // console.log(s3)
     // // console.log(this.productsForm.value.lostCustomer.monthlyBudget1 + this.productsForm.value.sameBrands.monthlyBudget12 + this.productsForm.value.tradeValue.monthlyBudget3)
-    this.totalPrecisionMail1Num=(n1 || 0) + (n2 || 0);
+    this.totalPrecisionMail1Num = (n1 || 0) + (n2 || 0);
     let sum = (n1 || 0) + (n2 || 0);
     // console.log(sum)
-    this.TotalPrecisionMail1 =  sum;
+    this.TotalPrecisionMail1 = sum;
     // console.log(this.servicesForm.value.introToService.monthlyBudgets1)
   }
-  totalPrecisionMailNum!:number
-  totalPrecisionMail1Num!:number
+  totalPrecisionMailNum!: number;
+  totalPrecisionMail1Num!: number;
 
   @ViewChild('check2')
   check2!: ElementRef;
   @ViewChild('check1')
   check1!: ElementRef;
- @ViewChild('parent2')
- parent2!:ElementRef
+  @ViewChild('parent2')
+  parent2!: ElementRef;
   ngAfterViewInit() {}
- 
+
   formGroupName!: string;
   lineAmount!: number;
   valus1!: number;
-  valus2!:number
+  valus2!: number;
   display: { [y: string]: any } = {};
- 
- 
 
-  
-  RententionTotalNum!:number
+  RententionTotalNum!: number;
   RententionTotal!: number;
   RententionTotal2!: number;
- 
- 
 
-  @ViewChild('disables') disable!:ElementRef
-
-
+  @ViewChild('disables') disable!: ElementRef;
 }
