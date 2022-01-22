@@ -30,6 +30,30 @@
       "sellingPrice3": 7000,
       "invoicePrice3": "",
       "id": 1
+    },
+    {
+      "stockNumber": "12344",
+      "year": "1999",
+      "make": "Bently",
+      "model": "Bently",
+      "MSRP": "$68",
+      "sellingPrice": "$69",
+      "invoicePrice": "$900",
+      "stockNumber2": "777",
+      "year1": "Select Year",
+      "make2": "Bently",
+      "model2": "Bently",
+      "MSRP2": "$677",
+      "sellingPrice2": "$6,767",
+      "invoicePrice2": "$6,767",
+      "stockNumber3": "6666",
+      "year3": "1998",
+      "make3": "Bently",
+      "model3": "Bently",
+      "MSRP3": "$666",
+      "sellingPrice3": "$7,777",
+      "invoicePrice3": "$666",
+      "id": 2
     }
   ],
   "accounts": [

@@ -16,52 +16,31 @@ import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
   templateUrl: './ads.component.html',
   styleUrls: ['./ads.component.scss'],
 })
-export class AdsComponent implements OnInit, DoCheck {
-  constructor(public fb: FormBuilder, public currencyPipe: CurrencyPipe,public _toggle:ToggleServiceService) {}
+export class AdsComponent implements OnInit {
+  constructor(
+    public fb: FormBuilder,
+    public currencyPipe: CurrencyPipe,
+    public _toggle: ToggleServiceService
+  ) {}
   adsForm!: FormGroup;
   adsForms!: FormGroup;
-  totalAds!:any
-  totalVideos!:any
-  totalAd!:any
+  totalAds!: any;
+  totalVideos!: any;
+  totalAd!: any;
   ngOnInit(): void {
-    this._toggle.adsdata.subscribe((res:any)=>{
-      this.totalAds=res
-      this.totalSum()
-    })
+    this._toggle.adsdata.subscribe((res: any) => {
+      this.totalAds = res;
+      this.totalSum();
+    });
 
-    this._toggle.videoData.subscribe((res:any)=>{
-      
-      this.totalVideos=res
-      this.totalSum()
-    })
-
-   let obj=new Observable(a=>{
-       a.next(Math.random())
-   })
-   let subject=new Subject()
-
-
- 
-
-   subject.subscribe((res)=>{
-     console.log(res)
-   })
-
-   subject.subscribe((res)=>{
-     console.log(res)
-   })
-   subject.next(Math.random())
-
-  //  obj.subscribe((res)=>{
-  //    console.log(res)
-  //  })
-  //  obj.subscribe((res)=>{
-  //    console.log(res)
-  //  })
+    this._toggle.videoData.subscribe((res: any) => {
+      this.totalVideos = res;
+      this.totalSum();
+    });
 
     this.baseAdvertisingPackage = this.fb.group({
       searchNew: this.fb.group({
-        percentage: ['25%'],
+        percentage: [''],
         monthlyBudget: [''],
       }),
 
@@ -112,8 +91,6 @@ export class AdsComponent implements OnInit, DoCheck {
         monthleyFee: [''],
       }),
     });
-
-  
   }
   percentageNum!: number;
   monthlyBudgetNum!: number;
@@ -123,28 +100,28 @@ export class AdsComponent implements OnInit, DoCheck {
   baseAdvertisingPackage!: FormGroup;
   display: { [x: string]: any } = {};
 
+  totalSum() {
+    this.totalBaseAdvertisingPackage =
+      (this.display.lineAmountNum0 || 0) +
+      (this.display.lineAmountNum1 || 0) +
+      (this.display.lineAmountNum || 0) +
+      (this.display.lineAmountNum2 || 0) +
+      (this.display.lineAmountCustom || 0);
 
+    this.totalPlusAdvertisingPackage =
+      (this.display.pluslineAmountNum0 || 0) +
+      (this.display.pluslineAmountNum1 || 0) +
+      (this.display.pluslineAmountNum || 0) +
+      (this.display.pluslineAmountNum2 || 0) +
+      (this.display.pluslineAmountCustom || 0);
 
-totalSum(){
-  this.totalBaseAdvertisingPackage =
-  (this.display.lineAmountNum0 || 0) +
-  (this.display.lineAmountNum1 || 0) +
-  (this.display.lineAmountNum || 0) +
-  (this.display.lineAmountNum2 || 0) +
-  (this.display.lineAmountCustom || 0);
-
-this.totalPlusAdvertisingPackage =
-  (this.display.pluslineAmountNum0 || 0) +
-  (this.display.pluslineAmountNum1 || 0) +
-  (this.display.pluslineAmountNum || 0) +
-  (this.display.pluslineAmountNum2 || 0) +
-  (this.display.pluslineAmountCustom || 0);
-
-
-
-  this.totalAd=(this.totalAds||0)+(this.totalVideos||0)+(this.totalBaseAdvertisingPackage||0)+(this.totalPlusAdvertisingPackage||0)
-  this._toggle.getParentAdsData(this.totalAd)
-}
+    this.totalAd =
+      (this.totalAds || 0) +
+      (this.totalVideos || 0) +
+      (this.totalBaseAdvertisingPackage || 0) +
+      (this.totalPlusAdvertisingPackage || 0);
+    this._toggle.getParentAdsData(this.totalAd);
+  }
 
   percentage(
     e: any,
@@ -159,7 +136,7 @@ this.totalPlusAdvertisingPackage =
       let data = parseFloat(e.target.value);
 
       this.display[lineAmountNum] = data;
-      if (e.target.value.length > 0) {
+      if (e.target.value.length > 0 && !e.target.value.includes('$')) {
         this.adsForm.patchValue({
           [formGroupName]: {
             monthleyFee: '$' + e.target.value,
@@ -169,7 +146,7 @@ this.totalPlusAdvertisingPackage =
     }
     if ('percentage' == e.target.dataset.name) {
       this.display[percentageNum] = e.target.value / 100;
-      if (e.target.value.length > 0) {
+      if (e.target.value.length > 0 && !e.target.value.includes('%')) {
         this.baseAdvertisingPackage.patchValue({
           [formGroupName]: {
             percentage: e.target.value + '%',
@@ -180,7 +157,7 @@ this.totalPlusAdvertisingPackage =
     if ('doller' == e.target.dataset.name) {
       if ('monthleyFree' == e.target.name) {
         this.display[monthlyBudgetNum] = e.target.value;
-        if (e.target.value.length > 0) {
+        if (e.target.value.length > 0 && !e.target.value.includes('$')) {
           this.baseAdvertisingPackage.patchValue({
             [formGroupName]: {
               monthlyBudget: '$' + e.target.value + '.00',
@@ -190,7 +167,7 @@ this.totalPlusAdvertisingPackage =
       }
       if ('newColumn' == e.target.id) {
         this.display[monthlyfee] = e.target.value;
-        if (e.target.value.length > 0) {
+        if (e.target.value.length > 0 && !e.target.value.includes('$')) {
           this.baseAdvertisingPackage.patchValue({
             [formGroupName]: {
               monthlyfree: '$' + e.target.value + '.00',
@@ -217,10 +194,14 @@ this.totalPlusAdvertisingPackage =
     let x = n / 100;
     this.display[PercentageFeeNum] = x * this.display[monthlyBudgetNum];
     let p = x * this.display[monthlyBudgetNum];
-    this.display[lineAmountNum] = (s || p) + (s1||0) + (s2 || 0);
+    this.display[lineAmountNum] = (s || p) + (s1 || 0) + (s2 || 0);
 
-    // this.totalBaseAdvertisingPackage=(this.display.lineAmountNum||0)+(this.display.lineAmountNum1||0)(this.display.lineAmountNum2||0)+(this.display.lineAmountNum3||0)(this.display.lineAmountCustom||0)
+    // this.totalBaseAdvertisingPackage =
+    //   (this.display.lineAmountNum || 0) +
+    //   (this.display.lineAmountNum1 || 0)(this.display.lineAmountNum2 || 0) +
+    //   (this.display.lineAmountNum3 || 0)(this.display.lineAmountCustom || 0);
     //  console.log(this.totalBaseAdvertisingPackage)
+    this.totalSum();
   }
   totalBaseAdvertisingPackage!: number;
   defalut!: string;
@@ -238,23 +219,37 @@ this.totalPlusAdvertisingPackage =
 
     if ('doller' == e.target.dataset.name) {
       this.customs[pricePerFee] = e.target.value;
-
-      this.baseAdvertisingPackage.patchValue({
-        [formGroupName]: {
-          pricePerFee: '$' + this.customs[pricePerFee],
-        },
-      });
+      if (e.target.value.length > 0) {
+        if (e.target.value.includes('$')) {
+          this.baseAdvertisingPackage.patchValue({
+            [formGroupName]: {
+              pricePerFee: this.customs[pricePerFee],
+            },
+          });
+        } else {
+          this.baseAdvertisingPackage.patchValue({
+            [formGroupName]: {
+              pricePerFee: '$' + this.customs[pricePerFee],
+            },
+          });
+        }
+      }
     }
-    console.log();
+
     let s = parseFloat(this.customs[quantityNum].toString());
     let s2 = parseFloat(this.customs[pricePerFee].toString());
 
     this.display[lineAmount] = s * s2;
+
+    this.baseAdvertisingPackage.patchValue({
+      [formGroupName]: {
+        monthlyBudget: '$' + this.display[lineAmount],
+      },
+    });
+    this.totalSum();
   }
   totalPlusAdvertisingPackage!: number;
-  ngDoCheck() {
-   
-  }
+
   isNotAllowed = true;
   @ViewChild('line') line!: ElementRef;
   @ViewChild('data1') data1!: ElementRef;
@@ -264,7 +259,7 @@ this.totalPlusAdvertisingPackage =
   isExpand1!: boolean;
   isExpand2!: boolean;
 
-  @Input('isexpand') isexpand!:boolean
+  @Input('isexpand') isexpand!: boolean;
 
   checkbox(e: any) {
     if ('defaultCheck2' == e.target.id) {
@@ -272,7 +267,7 @@ this.totalPlusAdvertisingPackage =
         this.check1.nativeElement.checked = false;
         this.isExpand1 = false;
         this.isExpand2 = true;
-      
+
         this.display.PercentageFeeNum = 0;
         this.display.PercentageFeeNum1 = 0;
         this.display.PercentageFeeNum2 = 0;
@@ -283,7 +278,7 @@ this.totalPlusAdvertisingPackage =
         this.display.lineAmountNum2 = 0;
         this.display.lineAmountCustom = 0;
         // this.data1.nativeElement.disable()
-        
+        this.totalSum();
       }
       if (e.target.checked) {
         this.adsForm.get(['adsForm2', 'monthleyFee'])?.enable();
@@ -292,10 +287,10 @@ this.totalPlusAdvertisingPackage =
         let s = parseFloat(m);
         this.display.pluslineAmountNum0 = s;
         this.isNotAllowed = true;
-      }
-      else {
+        this.totalSum();
+      } else {
         this.adsForm.get(['adsForm2', 'monthleyFee'])?.disable();
-  
+
         this.display.plusPercentageFeeNum = 0;
         this.display.plusPercentageFeeNum1 = 0;
         this.display.plusPercentageFeeNum2 = 0;
@@ -307,24 +302,23 @@ this.totalPlusAdvertisingPackage =
         this.display.pluslineAmountCustom = 0;
         this.baseAdvertisingPackage.reset();
         this.isNotAllowed = false;
+        this.totalSum();
       }
-
 
       // this.line.nativeElement.innerText=0
     }
-    
+
     if ('defaultCheck1' == e.target.id) {
       if (e.target.checked) {
         this.check2.nativeElement.checked = false;
         this.isExpand2 = false;
         this.isExpand1 = true;
-        this.display.pluslineAmountNum0  =0;
-      this.display.pluslineAmountNum1 =0;
-      this.display.pluslineAmountNum =0;
-      this.display.pluslineAmountNum2 =0;
-      this.display.pluslineAmountCustom =0;
-       
-       
+        this.display.pluslineAmountNum0 = 0;
+        this.display.pluslineAmountNum1 = 0;
+        this.display.pluslineAmountNum = 0;
+        this.display.pluslineAmountNum2 = 0;
+        this.display.pluslineAmountCustom = 0;
+        this.totalSum();
       }
 
       if (e.target.checked) {
@@ -334,10 +328,10 @@ this.totalPlusAdvertisingPackage =
         let s = parseFloat(m);
         this.display.lineAmountNum0 = s;
         this.isNotAllowed = true;
-      }
-      else {
+        this.totalSum();
+      } else {
         this.adsForm.get(['adsForm1', 'monthleyFee'])?.disable();
-  
+
         this.display.PercentageFeeNum = 0;
         this.display.PercentageFeeNum1 = 0;
         this.display.PercentageFeeNum2 = 0;
@@ -349,14 +343,8 @@ this.totalPlusAdvertisingPackage =
         this.display.lineAmountCustom = 0;
         this.baseAdvertisingPackage.reset();
         this.isNotAllowed = false;
+        this.totalSum();
       }
-
-     
     }
-
-    
   }
-
-  
- 
 }

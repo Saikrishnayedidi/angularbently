@@ -29,16 +29,20 @@
       </div>
       <div class="row">
         <div class="col-3">
-          <select class="form-select border border-dark py-3 mb-3" aria-label="Default select example"
-            formControlName="conform" [ngModel]="select">
+          <select
+            class="form-select border border-dark py-3 mb-3"
+            aria-label="Default select example"
+            formControlName="conform"
+          >
             <option *ngFor="let item of conform" [value]="item.select">
               {{ item.select }}
             </option>
           </select>
         </div>
         <div class="col-8">
-          I confirm this is the correct name and address for use in the dealership ad copy and location extensions.
-          If address changes are needed, please contact support@teamvelocitymarketing.com
+          I confirm this is the correct name and address for use in the
+          dealership ad copy and location extensions. If address changes are
+          needed, please contact support@teamvelocitymarketing.com
         </div>
       </div>
     </div>
@@ -47,83 +51,154 @@
       <p class="border-bottom border-1 border-dark mt-2"></p>
       <div formGroupName="URLS">
         <div class="col-4">
-          <label for="inputPassword6" class="col-form-label">Website URLS</label>
+          <label for="inputPassword6" class="col-form-label"
+            >Website URLS</label
+          >
 
           <div class="col-10">
-            <input type="text" id="inputPassword6" (keyup)="urlVlid($event,'Url')" formControlName="websiteURLS"
-              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isUrlError ? 'error' : 'errors'" />
-              <span class="text-danger" *ngIf='error.isUrlError'>{{accountForm.value.URLS.websiteURLS}} Website url is wrg</span>
+            <input
+              type="text"
+              id="inputPassword6"
+              (keyup)="urlVlid($event, 'Url')"
+              formControlName="websiteURLS"
+              class="form-control border border-dark py-3 mb-3"
+              [ngClass]="error.isUrlError ? 'error' : 'errors'"
+            />
+            <span class="text-danger" *ngIf="error.isUrlError"
+              >{{ accountForm.value.URLS.websiteURLS }} Website url is wrg</span
+            >
           </div>
 
-          <label for="inputPassword6" class="col-form-label">Website Provider</label>
+          <label for="inputPassword6" class="col-form-label"
+            >Website Provider</label
+          >
 
           <div class="col-10">
-            <input type="text" id="inputPassword6" (keyup)="urlVlid($event,'Web')" formControlName="websiteProvider"
-              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isInstagramError ? 'error' : 'errors'" />
-              <span class="text-danger" *ngIf='error.isWebError'>{{accountForm.value.URLS.websiteProvider}} Website url is wrg</span>
+            <input
+              type="text"
+              id="inputPassword6"
+              (keyup)="urlVlid($event, 'Web')"
+              formControlName="websiteProvider"
+              class="form-control border border-dark py-3 mb-3"
+              [ngClass]="error.isInstagramError ? 'error' : 'errors'"
+            />
+            <span class="text-danger" *ngIf="error.isWebError"
+              >{{ accountForm.value.URLS.websiteProvider }} Website url is
+              wrg</span
+            >
           </div>
-
         </div>
         <div class="col-4">
-          <label for="inputPassword6" class="col-form-label">Facebook URL</label>
+          <label for="inputPassword6" class="col-form-label"
+            >Facebook URL</label
+          >
 
           <div class="col-10">
-            <input type="text" id="inputPassword6" (keyup)="urlVlid($event,'Facebook')" formControlName="facebookURL"
-              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isInstagramError ? 'error' : 'errors'" />
-              <span class="text-danger" *ngIf='error.isFacebookError' > {{accountForm.value.URLS.facebookURL}}  Facebook url is wrg</span>
+            <input
+              type="text"
+              id="inputPassword6"
+              (keyup)="urlVlid($event, 'Facebook')"
+              formControlName="facebookURL"
+              class="form-control border border-dark py-3 mb-3"
+              [ngClass]="error.isInstagramError ? 'error' : 'errors'"
+            />
+            <span class="text-danger" *ngIf="error.isFacebookError">
+              {{ accountForm.value.URLS.facebookURL }} Facebook url is wrg</span
+            >
           </div>
 
-          <label for="inputPassword6" class="col-form-label"> Twitter URL</label>
+          <label for="inputPassword6" class="col-form-label">
+            Twitter URL</label
+          >
 
           <div class="col-10">
-            <input type="text" id="inputPassword6" (keyup)="urlVlid($event,'Twitter')" formControlName="twitterURL"
-              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isInstagramError ? 'error' : 'errors'" />
-              <span class="text-danger" *ngIf='error.isTwitterError'> {{accountForm.value.URLS.twitterURL}}Twitter url is wrg</span>
+            <input
+              type="text"
+              id="inputPassword6"
+              (keyup)="urlVlid($event, 'Twitter')"
+              formControlName="twitterURL"
+              class="form-control border border-dark py-3 mb-3"
+              [ngClass]="error.isInstagramError ? 'error' : 'errors'"
+            />
+            <span class="text-danger" *ngIf="error.isTwitterError">
+              {{ accountForm.value.URLS.twitterURL }}Twitter url is wrg</span
+            >
           </div>
-
         </div>
 
         <div class="col-4">
-          <label for="inputPassword6" class="col-form-label">Instagram URL</label>
+          <label for="inputPassword6" class="col-form-label"
+            >Instagram URL</label
+          >
 
           <div class="col-10">
-            <input type="text" id="inputPassword6" (keyup)="urlVlid($event,'Instagram')" formControlName="instagramURL"
-              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isInstagramError ? 'error' : 'errors'" />
-              <span class="text-danger" *ngIf='error.isInstagramError'>{{accountForm.value.URLS.instagramURL}} Instagram url is wrg</span>
+            <input
+              type="text"
+              id="inputPassword6"
+              (keyup)="urlVlid($event, 'Instagram')"
+              formControlName="instagramURL"
+              class="form-control border border-dark py-3 mb-3"
+              [ngClass]="error.isInstagramError ? 'error' : 'errors'"
+            />
+            <span class="text-danger" *ngIf="error.isInstagramError"
+              >{{ accountForm.value.URLS.instagramURL }} Instagram url is
+              wrg</span
+            >
           </div>
 
-          <label for="inputPassword6" class="col-form-label">You Tube URL</label>
+          <label for="inputPassword6" class="col-form-label"
+            >You Tube URL</label
+          >
 
           <div class="col-10">
-            <input type="text" id="inputPassword6" (keyup)="urlVlid($event,'youTube')" formControlName="youTubeURL"
-              class="form-control border border-dark py-3 mb-3" [ngClass]="error.isInstagramError ? 'error' : 'errors'" />
-              <span class="text-danger" *ngIf='error.isyouTubeError'>{{accountForm.value.URLS.youTubeURL}} youTube url is wrg</span>
+            <input
+              type="text"
+              id="inputPassword6"
+              (keyup)="urlVlid($event, 'youTube')"
+              formControlName="youTubeURL"
+              class="form-control border border-dark py-3 mb-3"
+              [ngClass]="error.isInstagramError ? 'error' : 'errors'"
+            />
+            <span class="text-danger" *ngIf="error.isyouTubeError"
+              >{{ accountForm.value.URLS.youTubeURL }} youTube url is wrg</span
+            >
           </div>
-
-
         </div>
         <div>
-
           <p class="fs-3">Phone Numbers</p>
           <p class="border-bottom border-1 border-dark mt-2"></p>
-          Please enter the phone numbers call tracking numbers should direct to. Call tracking numbers will direct to
-          the phone numbers you provide below.
+          Please enter the phone numbers call tracking numbers should direct to.
+          Call tracking numbers will direct to the phone numbers you provide
+          below.
 
           <div class="col-4">
-            <label for="inputPassword6" class="col-form-label">Call Routing Line-Sales</label>
+            <label for="inputPassword6" class="col-form-label"
+              >Call Routing Line-Sales</label
+            >
 
             <div class="col-10">
-              <input type="text"  mask="(000) 000-0000" id="inputPassword6" formControlName="callLineSales"
-                class="form-control border border-dark py-3 mb-3" />
+              <input
+                type="text"
+                mask="(000) 000-0000"
+                id="inputPassword6"
+                formControlName="callLineSales"
+                class="form-control border border-dark py-3 mb-3"
+              />
             </div>
 
-            <label for="inputPassword6" class="col-form-label">Call Routing Line-Service</label>
+            <label for="inputPassword6" class="col-form-label"
+              >Call Routing Line-Service</label
+            >
 
             <div class="col-10">
-              <input type="text"  mask="(000) 000-0000" id="inputPassword6" formControlName="callLineService"
-                class="form-control border border-dark py-3 mb-3" />
+              <input
+                type="text"
+                mask="(000) 000-0000"
+                id="inputPassword6"
+                formControlName="callLineService"
+                class="form-control border border-dark py-3 mb-3"
+              />
             </div>
-
           </div>
         </div>
       </div>
@@ -131,10 +206,11 @@
   </div>
 
   <div class="d-flex flex-column align-items-end">
-
-    <button type="submit" class="btn rounded-pill text-light  px-5 mb-5 save-btn">
+    <button
+      type="submit"
+      class="btn rounded-pill text-light px-5 mb-5 save-btn"
+    >
       save
     </button>
-
   </div>
 </form>

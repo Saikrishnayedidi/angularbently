@@ -1,6 +1,5 @@
-
 <form [formGroup]="serviceForm">
-<mat-expansion-panel class="mt-4 overcallBg"  expanded="true">
+  <mat-expansion-panel class="mt-4 overcallBg" expanded="true">
     <mat-expansion-panel-header class="rounded-pill bg-white border">
       <mat-panel-title class="fs-5 c"> Service </mat-panel-title>
       <mat-panel-description> </mat-panel-description>
@@ -18,7 +17,6 @@
     >
       <mat-expansion-panel-header
         class="border bg-white"
-
         #panelH
         (click)="panelH._toggle()"
       >
@@ -32,14 +30,9 @@
                 id="defaultCheck1"
                 name="n1"
                 #check1
-               
                 (change)="check($event)"
-               
               />
-              <label
-                class="form-check-label mt-1"
-                for="defaultCheck1"
-              >
+              <label class="form-check-label mt-1" for="defaultCheck1">
                 Service Retention (CustomerExclusive)
               </label>
               <i
@@ -50,44 +43,40 @@
           </div>
         </mat-panel-title>
         <mat-panel-description> </mat-panel-description>
-        <div class="" formGroupName='seriveCustom' >
+        <div class="" formGroupName="seriveCustom">
           <div class="col-3 text-end mt-2">
             <input
               type="text"
               data-name="sub"
               id="parent"
               dir="rtl"
-              
               name="monthlyFee"
-              (blur)="servieFun($event,'seriveCustom','monthlyFee','lineAmount','lineAmountTotal1')"
+              (blur)="
+                servieFun(
+                  $event,
+                  'seriveCustom',
+                  'monthlyFee',
+                  'lineAmount',
+                  'lineAmountTotal1'
+                )
+              "
               formControlName="monthlyFee"
               class="input_money me-1"
             />
           </div>
         </div>
         <div class="col-3 text-end mt-2">
-          <span>{{display.lineAmount|currency:'USD'}}</span>
+          <span>{{ display.lineAmount | currency: "USD" }}</span>
         </div>
       </mat-expansion-panel-header>
-      <div class="overcallBg "  #disables>
-        <div  formGroupName="search">
-          <div
-            class="
-              d-flex
-              bgColor
-              py-3
-              px-3
-              justify-content-between
-              mt-3
-            "
-          >
+      <div class="overcallBg" #disables>
+        <div formGroupName="search">
+          <div class="d-flex bgColor py-3 px-3 justify-content-between mt-3">
             <span class="col-5">products&service</span>
             <span class="col-5 text-end">Monthly Budget</span>
             <span class="col-2 text-end">Line Amount</span>
           </div>
-          <div 
-            class="d-flex bgdivColor  align-items-center py-2 mt-3 px-3"
-          >
+          <div class="d-flex bgdivColor align-items-center py-2 mt-3 px-3">
             <span class="col-5 doted bgdivColor py-2 t">Search - Service</span>
 
             <div class="text-end doted bgdivColor py-2 px-3 col-5">
@@ -98,15 +87,23 @@
                 #input1
                 data-name="sub"
                 formControlName="monthlyBudgetSearch"
-                (blur)="servieFun($event,'search','monthlyBudgetSearch','lineAmount1','lineAmountTotal1')"
+                (blur)="
+                  servieFun(
+                    $event,
+                    'search',
+                    'monthlyBudgetSearch',
+                    'lineAmount1',
+                    'lineAmountTotal1'
+                  )
+                "
                 class="input_money"
               />
             </div>
-            <div class="col-2 bgdivColor py-2 text-end">{{display.lineAmount1|currency:'USD'}}</div>
+            <div class="col-2 bgdivColor py-2 text-end">
+              {{ display.lineAmount1 | currency: "USD" }}
+            </div>
           </div>
-          <div
-            class="d-flex bgdivColor   align-items-center py-2 mt-3 px-3"
-          >
+          <div class="d-flex bgdivColor align-items-center py-2 mt-3 px-3">
             <span class="col-5 doted t">Search - Service</span>
 
             <div class="text-end doted bgdivColor pt-2 px-3 col-5">
@@ -116,29 +113,29 @@
                 dir="rtl"
                 data-name="sub"
                 formControlName="monthlyBudgetService"
-                
-                (blur)="servieFun($event,'search','monthlyBudgetService','lineAmount2','lineAmountTotal1')"
-               
+                (blur)="
+                  servieFun(
+                    $event,
+                    'search',
+                    'monthlyBudgetService',
+                    'lineAmount2',
+                    'lineAmountTotal1'
+                  )
+                "
                 class="input_money"
               />
             </div>
-            <div class="col-2 text-end">{{display.lineAmount2|currency:'USD'}}</div>
+            <div class="col-2 text-end">
+              {{ display.lineAmount2 | currency: "USD" }}
+            </div>
           </div>
           <div
-            class="
-              d-flex
-              align-items-center
-              bgdivColor   
-              mt-3
-              py-2
-              px-3
-              justify-content-between
-            "
+            class="d-flex align-items-center bgdivColor mt-3 py-2 px-3 justify-content-between"
           >
-            <span class="c"
-              >Total Service Retention (Customer Exclusive)</span
-            >
-            <div class="c">{{display.lineAmountTotal1|currency:'USD'}}</div>
+            <span class="c">Total Service Retention (Customer Exclusive)</span>
+            <div class="c">
+              {{ display.lineAmountTotal1 | currency: "USD" }}
+            </div>
           </div>
         </div>
       </div>
@@ -151,7 +148,6 @@
     >
       <mat-expansion-panel-header
         class="border bg-white"
-        
         #panelH1
         (click)="panelH1._toggle()"
       >
@@ -165,7 +161,6 @@
               name="n1"
               #check2
               (change)="check($event)"
-            
             />
             <label class="form-check-label mt-1" for="defaultCheck1">
               Service Retention
@@ -177,7 +172,7 @@
           </div>
         </mat-panel-title>
         <mat-panel-description> </mat-panel-description>
-        <div formGroupName="service" >
+        <div formGroupName="service">
           <div class="col-3 text-end mt-2">
             <input
               type="text"
@@ -186,35 +181,31 @@
               dir="rtl"
               #parent2
               formControlName="monthlyFee"
-            
-              (blur)="servieFun($event,'service','monthlyFee','lineAmount3','lineAmountTotal2')"
+              (blur)="
+                servieFun(
+                  $event,
+                  'service',
+                  'monthlyFee',
+                  'lineAmount3',
+                  'lineAmountTotal2'
+                )
+              "
               class="input_money me-1"
             />
           </div>
         </div>
         <div class="col-3 text-end mt-2">
-          <span>{{display.lineAmount3|currency:'USD'}}</span>
+          <span>{{ display.lineAmount3 | currency: "USD" }}</span>
         </div>
       </mat-expansion-panel-header>
       <div class="overcallBg">
-        <div formGroupName="search2" >
-          <div
-            class="
-              d-flex
-              bgColor
-              py-3
-              px-3
-              justify-content-between
-              mt-3
-            "
-          >
+        <div formGroupName="search2">
+          <div class="d-flex bgColor py-3 px-3 justify-content-between mt-3">
             <span class="col-5">products&service</span>
             <span class="col-5 text-end">Monthly Budget</span>
             <span class="col-2 text-end">Line Amount</span>
           </div>
-          <div
-            class="d-flex bgdivColor   align-items-center py-2 mt-3 px-3"
-          >
+          <div class="d-flex bgdivColor align-items-center py-2 mt-3 px-3">
             <span class="col-5 doted t">Search - Service</span>
 
             <div class="text-end doted bgdivColor pt-2 px-3 col-5">
@@ -224,15 +215,23 @@
                 dir="rtl"
                 data-name="Sub"
                 formControlName="monthlyBudgetSearch"
-                (blur)="servieFun($event,'search2','monthlyBudgetSearch','lineAmount4','lineAmountTotal2')"
+                (blur)="
+                  servieFun(
+                    $event,
+                    'search2',
+                    'monthlyBudgetSearch',
+                    'lineAmount4',
+                    'lineAmountTotal2'
+                  )
+                "
                 class="input_money"
               />
             </div>
-            <div class="col-2 text-end">{{display.lineAmount4 | currency:'USD'}}</div>
+            <div class="col-2 text-end">
+              {{ display.lineAmount4 | currency: "USD" }}
+            </div>
           </div>
-          <div
-            class="d-flex bgdivColor   align-items-center py-2 mt-3 px-3"
-          >
+          <div class="d-flex bgdivColor align-items-center py-2 mt-3 px-3">
             <span class="col-5 doted t">Search - Service</span>
 
             <div class="text-end doted bgdivColor pt-2 px-3 col-5">
@@ -241,45 +240,39 @@
                 id=""
                 dir="rtl"
                 data-name="Sub"
-                (blur)="servieFun($event,'search2','monthlyBudgetService','lineAmount5','lineAmountTotal2')"
+                (blur)="
+                  servieFun(
+                    $event,
+                    'search2',
+                    'monthlyBudgetService',
+                    'lineAmount5',
+                    'lineAmountTotal2'
+                  )
+                "
                 formControlName="monthlyBudgetService"
                 class="input_money"
               />
             </div>
-            <div class="col-2 text-end">{{display.lineAmount5 | currency:'USD'}}</div>
+            <div class="col-2 text-end">
+              {{ display.lineAmount5 | currency: "USD" }}
+            </div>
           </div>
           <div
-            class="
-              d-flex
-              align-items-center
-              bgdivColor  
-              mt-3
-              py-2
-              px-3
-              justify-content-between
-            "
+            class="d-flex align-items-center bgdivColor mt-3 py-2 px-3 justify-content-between"
           >
-            <span class="c"
-              >Total Service Retention </span
-            >
-            <div class="c">{{display.lineAmountTotal2|currency:'USD'}}</div>
+            <span class="c">Total Service Retention </span>
+            <div class="c">
+              {{ display.lineAmountTotal2 | currency: "USD" }}
+            </div>
           </div>
         </div>
       </div>
     </mat-expansion-panel>
     <div
-      class="
-        d-flex
-        align-items-center
-        bgColor
-        mt-3
-        py-2
-        px-3
-        justify-content-between
-      "
+      class="d-flex align-items-center bgColor mt-3 py-2 px-3 justify-content-between"
     >
       <span class="c fs-5">Total Service </span>
-      <div class="c fs-5">{{servicetotal|currency:'USD'}}</div>
+      <div class="c fs-5">{{ servicetotal | currency: "USD" }}</div>
     </div>
   </mat-expansion-panel>
-  </form>
+</form>

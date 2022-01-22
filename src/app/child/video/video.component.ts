@@ -8,7 +8,7 @@ import { ToggleServiceService } from 'src/app/shared/toggle-service.service';
   styleUrls: ['./video.component.scss'],
 })
 export class VideoComponent implements OnInit, DoCheck {
-  constructor(public fb: FormBuilder,public _toggle:ToggleServiceService) {}
+  constructor(public fb: FormBuilder, public _toggle: ToggleServiceService) {}
 
   ngOnInit(): void {}
 
@@ -31,13 +31,13 @@ export class VideoComponent implements OnInit, DoCheck {
   // vPercentagefee!:number
   // vPercentage!:number
   // vMonthlyBudget!:number
-  isAllowed=true
+  isAllowed = true;
   ngDoCheck() {
     this.videoTotal =
       (this.vLineAmount || 0) +
       (parseFloat(this.display.vLineAmount1) || 0) +
       (parseFloat(this.display.vLineAmount2) || 0);
-      this._toggle.getVideoData(this.videoTotal)
+    this._toggle.getVideoData(this.videoTotal);
   }
   videoTotal!: number;
   videoPercentage(
@@ -65,39 +65,39 @@ export class VideoComponent implements OnInit, DoCheck {
       this.display[percentage] * this.display[monthlyBudget];
     let data = this.display[percentageFee] + this.display[monthlyBudget];
     this.display[lineAmount] = parseFloat(data);
-if(e.target.value.length>0){
-  this.videoForm.patchValue({
-    [formGroupName]: {
-      [formControlName]: '$' + e.target.value + '.00',
-      [formControlName1]: e.target.value + '%',
-    },
-  });
-}
-   
+    if (
+      e.target.value.length > 0 &&
+      !(e.target.value.includes('%') || e.target.value.includes('$'))
+    ) {
+      this.videoForm.patchValue({
+        [formGroupName]: {
+          [formControlName]: '$' + e.target.value + '.00',
+          [formControlName1]: e.target.value + '%',
+        },
+      });
+    }
   }
 
-  videoCheck(e:any){
-   if(e.target.checked){
-     this.isAllowed=true
-  this.videoForm.get(['vAdvidPackage','vMonthlyFree'])?.enable()
-  let data=this.videoForm.value.vAdvidPackage.vMonthlyFree
-  let m = data.substring(1, data.length);
-        let s = parseFloat(m);
-        this.vLineAmount=s
-
-   }
-   else{
-     this.isAllowed=false
-    this.videoForm.get(['vAdvidPackage','vMonthlyFree'])?.disable()
-    this.vLineAmount=0
-    this.display.vLineAmount1=null
-    this.display.vLineAmount2=null
-    this.display.vPercentagefee=null
-    this.display.vPercentagefee1=null
-    this.videoForm.get(['vAdvidNew','vPercentage'])?.reset()
-    this.videoForm.get(['vAdvidNew','vMonthlyBudget'])?.reset()
-    this.videoForm.get(['vAdvidPreOwned','vPercentage'])?.reset()
-    this.videoForm.get(['vAdvidPreOwned','vMonthlyBudget'])?.reset()
-   }
+  videoCheck(e: any) {
+    if (e.target.checked) {
+      this.isAllowed = true;
+      this.videoForm.get(['vAdvidPackage', 'vMonthlyFree'])?.enable();
+      let data = this.videoForm.value.vAdvidPackage.vMonthlyFree;
+      let m = data.substring(1, data.length);
+      let s = parseFloat(m);
+      this.vLineAmount = s;
+    } else {
+      this.isAllowed = false;
+      this.videoForm.get(['vAdvidPackage', 'vMonthlyFree'])?.disable();
+      this.vLineAmount = 0;
+      this.display.vLineAmount1 = null;
+      this.display.vLineAmount2 = null;
+      this.display.vPercentagefee = null;
+      this.display.vPercentagefee1 = null;
+      this.videoForm.get(['vAdvidNew', 'vPercentage'])?.reset();
+      this.videoForm.get(['vAdvidNew', 'vMonthlyBudget'])?.reset();
+      this.videoForm.get(['vAdvidPreOwned', 'vPercentage'])?.reset();
+      this.videoForm.get(['vAdvidPreOwned', 'vMonthlyBudget'])?.reset();
+    }
   }
 }
